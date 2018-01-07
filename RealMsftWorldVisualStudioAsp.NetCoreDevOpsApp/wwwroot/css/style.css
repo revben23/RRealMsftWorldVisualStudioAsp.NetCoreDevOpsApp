@@ -226,10 +226,9 @@ a:active{
         float:none;
         width:100%;
     }
-    .blogHeader {
+    .blogHeaders {
         float: none;
-        width: 70%;
-    }
+        width: 100%;}
         .blogPic {
         float: none;
         width: 100%;
