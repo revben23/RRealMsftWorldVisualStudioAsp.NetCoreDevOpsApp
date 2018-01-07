@@ -8,7 +8,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 {
     public class ContactController : Controller
     {
-        public IActionResult About()
+        public IActionResult Contact()
         {
 
 

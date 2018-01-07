@@ -9,12 +9,13 @@
 
 <body>
 
+
     <header class="main-header"><h1>MsftWorld Visual Studio Dev Ops @ViewBag.Title</h1></header>
     <div class="main-nav-bar">
         <nav class="main-nav">
 
 
-            <a href="/Views/App/Index.cshtml">Home</a>
+            <a href="/">Home</a>
             <a href="~/Blog.html">Blog</a>
             <a href="~/Forum.html">Forum</a>
             <a href="~/About.html">About </a>
@@ -22,8 +23,10 @@
 
         </nav>
 
-</div>
-    
+    </div>
+    <div>
+        @RenderBody()
+    </div>
 
     <footer class="main-footer">
 
@@ -33,7 +36,7 @@
             <div class="block2"><p>Placeholder<br /> Placeholder<br />Placeholder<br />Placeholder<br />Placeholder</></div>
         </div>
         <div class="clr"></div>
-        <p class="block3">Copyright &copy; MsftWorld Visual Studio Dev Ops</p>
+        <p class="block3">Copyright @DateTime.Now.Year &copy; MsftWorld Visual Studio Dev Ops</p>
         <div class="clr"></div>
 
 

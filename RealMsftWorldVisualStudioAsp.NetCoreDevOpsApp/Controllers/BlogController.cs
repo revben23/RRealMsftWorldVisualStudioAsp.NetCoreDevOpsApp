@@ -8,7 +8,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 {
     public class BlogController : Controller
     {
-        public IActionResult About()
+        public IActionResult Blog()
         {
 
 

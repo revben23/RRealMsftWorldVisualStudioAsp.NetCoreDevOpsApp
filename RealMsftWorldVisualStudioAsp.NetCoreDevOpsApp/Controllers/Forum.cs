@@ -8,7 +8,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 {
     public class ForumController : Controller
     {
-        public IActionResult About()
+        public IActionResult Forum()
         {
 
 

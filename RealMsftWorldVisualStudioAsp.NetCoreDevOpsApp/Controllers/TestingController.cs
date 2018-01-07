@@ -23,7 +23,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 
     public class TestingController : Controller
     {
-        public IActionResult About()
+        public IActionResult Testing()
         {
 
 
