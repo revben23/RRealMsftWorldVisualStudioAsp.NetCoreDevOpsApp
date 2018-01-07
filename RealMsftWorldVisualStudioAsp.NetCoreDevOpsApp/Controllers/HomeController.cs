@@ -21,7 +21,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
         }*/
 
 
-        public IActionResult Index()
+      /*  public IActionResult Index()
         {
 
          
@@ -70,14 +70,14 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 
             return View("Testing");
 
-        }
+        }*/
 
         public IActionResult Resturant()
         {
 
             var model = new Resturant { Id = 1, Name = "Revi Nyamines Place" };
 
-            return View();
+            return View(model);
 
         }
     }
