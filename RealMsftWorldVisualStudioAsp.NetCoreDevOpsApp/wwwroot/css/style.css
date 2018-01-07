@@ -267,16 +267,17 @@ body{
 
 }
 .blogHeader{
-    color:purple;
+    color:#2a0e38;
     border:outset;
     border-color:aqua;
     border-radius:10px;
-    padding-top:20px;
-    padding-bottom:20px;
+    padding-top:320px;
+    padding-bottom:320px;
     text-align:center; 
-
-    
-    
+    width:100%;
+    background-image:url(../images/office-365-office-2016-zenith-cincinnati-it-support-managed-services.jpg);
+    background-size:cover;
+    font-size:40px;
 }
 .sidebar{
     float:right;
@@ -291,13 +292,28 @@ body{
 }
 .blogHeaders {
     color: purple;
-    border: outset;
-    border-color: aqua;
-    border-radius: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
     float:left;
     width:50%;
+    box-sizing:border-box;
+
+}
+.blogPic {
+    background: url("../images/office-365-office-2016-zenith-cincinnati-it-support-managed-services.jpg");
+    float: left;
+    width: 49.8%;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-size:cover;
+    
+}
+.blogFront {
+    border: outset;
+    border-color: aqua;
+    border-radius: 2px;
+    width:49.77%;
+    float:left;
 }
 
 .sidebar {
@@ -321,3 +337,6 @@ body{
     font-size: large;
     border: outset;
     border-color: purple;
+    border-radius: 2px;
+    
+}
