@@ -9,7 +9,7 @@
 
 <body>
 
-
+    @RenderSection("footer", required: false);
     <header class="main-header"><h1>MsftWorld Visual Studio Dev Ops @ViewBag.Title</h1></header>
     <div class="main-nav-bar">
         <nav class="main-nav">
@@ -39,7 +39,7 @@
         <p class="block3">Copyright @DateTime.Now.Year &copy; MsftWorld Visual Studio Dev Ops</p>
         <div class="clr"></div>
 
-
+        @RenderSection("footers", required: false);
 
     </footer>
     <script src="~/js/index.js"></script>
