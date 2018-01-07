@@ -8,7 +8,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 {
     public class PostsController : Controller
     {
-        public IActionResult Posts()
+        public IActionResult Office365()
         {
 
 
