@@ -1,9 +1,10 @@
-﻿<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Resturant</title>
-</head>
+﻿@model RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models.Restaurant
+@{
+    ViewBag.Title = "Restaurant";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 <body>
-    <h1>My Jamaican Resturant</h1>
+   <h1>@Model.Name</h1>
 
 </body>
-</html>

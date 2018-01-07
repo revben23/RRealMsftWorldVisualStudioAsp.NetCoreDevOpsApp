@@ -18,9 +18,11 @@
             @Html.ActionLink("Forum", "Forum", "Home")
             @Html.ActionLink("Blog", "Blog", "Home")
             @Html.ActionLink("About", "About", "Home")
-            @Html.ActionLink("Contact", "Contact", "Contact")
+            @Html.ActionLink("Contact", "Contact", "Home")
+            @Html.ActionLink("Restaurant", "Restaurant", "Home")
 
-          
+
+
 
         </nav>
 
@@ -41,7 +43,7 @@
         <p class="block3">Copyright @DateTime.Now.Year &copy; MsftWorld Visual Studio Dev Ops</p>
         <div class="clr"></div>
 
-        @RenderSection("footers", required: false);
+        @RenderSection("footers", required: false)
 
     </footer>
     <script src="~/js/index.js"></script>

@@ -33,4 +33,8 @@
     <TypeScriptCompile Include="wwwroot\ts\main.ts" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
