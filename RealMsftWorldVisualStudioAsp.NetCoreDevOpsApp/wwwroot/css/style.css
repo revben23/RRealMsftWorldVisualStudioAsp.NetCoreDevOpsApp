@@ -218,7 +218,28 @@ a:active{
     }
     .sidebar{
         float:none;
-        width:auto;
+        width:100%;
+        padding-right:100px;
+        text-align:center;
+    }
+    .blogHeaders{
+        float:none;
+        width:100%;
+    }
+    .blogHeader {
+        float: none;
+        width: 70%;
+    }
+        .blogPic {
+        float: none;
+        width: 100%;
+        background-size: auto;
+    }
+    .blogPosts{
+        float:none;
+        width:100%;
+        padding:0px
+        
     }
 }
 .form1 label{
@@ -317,7 +338,7 @@ body{
 }
 
 .sidebar {
-    float: right;
+    float: left;
     width: 30%;
     border: groove;
     padding: 20px;
@@ -338,5 +359,23 @@ body{
     border: outset;
     border-color: purple;
     border-radius: 2px;
+    
+}
+
+
+.button{
+    display: inline-block;
+    padding: 4px 4px;
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border-color:aliceblue;
+    border:outset;
+    border-radius:20px;
     
 }
