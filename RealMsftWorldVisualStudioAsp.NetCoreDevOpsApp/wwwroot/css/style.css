@@ -274,6 +274,7 @@ body{
     padding-top:20px;
     padding-bottom:20px;
     text-align:center; 
+
     
     
 }
@@ -288,3 +289,35 @@ body{
     padding-left:100px;
       
 }
+.blogHeaders {
+    color: purple;
+    border: outset;
+    border-color: aqua;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float:left;
+    width:50%;
+}
+
+.sidebar {
+    float: right;
+    width: 30%;
+    border: groove;
+    padding: 20px;
+    box-sizing: border-box;
+    padding-top: 1000px;
+    padding-bottom: 1000px;
+    padding-left: 100px;
+}
+.blogPosts {
+    background-color: #1f1313;
+    color: #dacdda;
+    margin: auto;
+    padding: 10px;
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    font-size: large;
+    border: outset;
+    border-color: purple;

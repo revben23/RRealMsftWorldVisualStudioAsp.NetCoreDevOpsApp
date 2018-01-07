@@ -71,6 +71,13 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             return View("Testing");
 
         }
+        
+        public IActionResult Posts()
+        {
+           
+            
+            return View("Posts");
+        }
 
         public IActionResult Restaurant()
         {
