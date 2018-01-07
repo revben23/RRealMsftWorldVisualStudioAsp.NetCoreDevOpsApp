@@ -21,7 +21,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
          }
      }*/
 
-    public class TestingController : Controller
+    public class RestaurantController : Controller
     {
         public IActionResult Testing()
         {
