@@ -1,0 +1,238 @@
+﻿
+.clr{
+    clear:both;
+}
+
+a{
+    text-decoration:none;
+    text-emphasis:circle;
+}
+a:hover{
+    color:crimson;
+}
+
+a:active{
+    color:darkgoldenrod;
+}
+@media screen and (max-width:1890px) {
+     
+    
+}
+
+ .main-header {
+        background-color: blueviolet;
+        text-align: center;
+        color: aliceblue;
+        margin: 0,0,0,0;
+        padding: 34px;
+        overflow: hidden;
+        font-size: 30px;
+    }
+
+ .main-nav-bar {
+        width:auto; 
+    }
+.main-nav-bar ul  {
+            background-color: cadetblue;
+            padding: 20px;
+            margin-top: 0;
+            text-align: center;
+            font-size: 30px;
+            font-stretch: expanded;
+        }
+
+ .main-nav-bar li {
+            display: inline;
+        }
+ .main-nav-bar ::after{
+     content:" |";
+ }
+ .main-nav-bar :last-of-type::after{
+     content:"";
+ }
+
+.block {
+        float: right;
+        width: 33.3%;
+    }
+.block1 {
+    float: right;
+    width: 33.3%;
+    margin:auto;
+}
+.block2 {
+    float: right;
+    width: 33.3%;
+    margin:auto;
+}
+.block3{
+    float:left;
+    width:100%;
+    margin:auto;
+}
+
+ .main-footer {
+        background-color: yellowgreen;
+        padding: 50px;
+        overflow: hidden;
+        margin: 0,0,0,0;
+    }
+
+
+
+.form {
+        border: 4px, rgb(48, 65, 23), solid;
+        border-style: outset;
+        width: 50%;
+        overflow: hidden;
+        background-image: url(../images/Belgium-Black-Polished-2cm-Lot-3071-Close-up.jpg);
+        color: aliceblue;
+    }
+
+.form .form-group {
+            padding: 5px;
+        }
+
+ .form label {
+            display: block;
+            padding: 5px;
+            width: 100%;
+        }
+
+.form input[type="text"], .form textarea {
+            padding: 5px;
+            width: 97%;
+        }
+.form input[type="submit"]{
+    background-color:green;
+    color:white;
+}
+
+ .form input [type="text"] {
+            color: black;
+        }
+
+.form textarea {
+            color: white;
+        }
+
+ .form input[type="date"] {
+            padding: 5px;
+            width: 34%
+        }
+
+ .form-forum label {
+        display: block;
+    }
+
+    .form-forum {
+        text-align: left;
+    }
+
+    .password label {
+        display: block;
+    }
+ .username label {
+        display: block;
+    }
+
+    .form1 {
+        text-align: left;
+        border:outset;
+        width:45%;
+        padding:10px;
+        border-color:deeppink;
+    
+        
+    }
+
+    .clr {
+        clear: both;
+    }
+
+    .test{
+
+        float: left;
+        width: 20%;
+    }
+.main-nav {
+    background-color: cadetblue;
+    padding: 20px;
+    margin-top: 0;
+    text-align: right;
+    font-size: 30px;
+    font-stretch: expanded;
+    width:auto;
+}
+.homeblock{
+    float:left;
+    width:70%;
+}
+.homeblock1 {
+    float: left;
+    width: 30%;
+}
+@media(max-width: 600px) {
+    .homeblock {
+        float: none;
+        width: 100%;
+    }
+
+    .homeblock1 {
+        float: none;
+        width: 100%;
+    }
+
+    .block {
+        width: 100%;
+        float: none;
+    }
+
+    .block1 {
+        width: 100%;
+        float: none;
+    }
+
+    .block2 {
+        width: 100%;
+        float: none;
+    }
+    .block3 {
+        width: 100%;
+        float: none;
+    }
+    body{
+        width:auto;
+    }
+    .forumBlock{
+        float:right;
+        width:100%;
+    }
+}
+.form1 label{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:purple;
+}
+.form1 input {
+    background-color:purple;
+    color:bisque;
+}
+.form1{
+    background-color:bisque;
+}
+@media(max-width: 1100px){
+    .form1{
+        width:auto;
+    }
+}
+body{
+    margin-right:2px;
+    margin-left:2px;
+    width:auto
+    
+}
+.forumBlock{
+    float:left;
+    width:30%;
+    margin-left:2px;
+}
