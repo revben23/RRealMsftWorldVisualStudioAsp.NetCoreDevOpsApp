@@ -379,3 +379,9 @@ body{
     border-radius:20px;
     
 }
+.ContactMessageDisplay{
+    color:green;
+}
+.SucessDisplay{
+    background-image: url(../images/success_blkboard.jpg);
+}

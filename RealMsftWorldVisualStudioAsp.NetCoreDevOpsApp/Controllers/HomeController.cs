@@ -69,8 +69,10 @@ return ("I am coming, HomeController");*/
 
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Contact(ContactInfo contactInfo)
         {
+            if (ModelState.IsValid) { 
             var NewContactInfo = new ContactInfo();
             NewContactInfo.FirstName = contactInfo.FirstName;
             NewContactInfo.LastName = contactInfo.LastName;
@@ -79,7 +81,12 @@ return ("I am coming, HomeController");*/
             NewContactInfo.Age = contactInfo.Age;
             NewContactInfo.Birthday = contactInfo.Birthday;
 
-            return View("Contact");
+            return View("ContactMessage");
+            }
+            else
+            {
+                return View("Contact");
+            }
         }
 
         public IActionResult Testing()
@@ -133,15 +140,23 @@ return ("I am coming, HomeController");*/
             return View();
         }
         [HttpPost]
-        public IActionResult Create (RestaurantEditModel model)
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(RestaurantEditModel model)
         {
-            var newRestaurant = new Restaurant();
+            if (ModelState.IsValid)
+            { 
+                var newRestaurant = new Restaurant();
 
             newRestaurant = _restaurantData.Add(newRestaurant);
             newRestaurant.Name = model.Name;
             newRestaurant.Cuisine = model.Cuisine;
 
             return RedirectToAction(nameof(Details), new { Id = newRestaurant.Id });
+            }
+            else
+            {
+                return View();
+            }
         }
   
 

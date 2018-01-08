@@ -19,8 +19,10 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models
             public string Message { get; set; }
             [Required]
             public int Age { get; set; }
+            [Display(Name="Birthday")]
             [Required]
-            public int Birthday { get; set; }
+            public DateTime Birthday { get; set; }
+            [Display(Name ="Gender")]
             [Required]
             public GenderType Gender { get; set; }
           
