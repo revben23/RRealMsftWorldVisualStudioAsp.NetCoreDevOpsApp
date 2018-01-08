@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
+namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Services
 {
     public interface IGreeter
     {

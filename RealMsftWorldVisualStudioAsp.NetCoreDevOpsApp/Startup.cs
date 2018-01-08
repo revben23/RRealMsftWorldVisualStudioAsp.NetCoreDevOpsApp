@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Services;
 
 namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
 {
@@ -20,6 +21,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
         {
          
             services.AddSingleton<IGreeter, Greeter>();
+            services.AddScoped<IRestaurantData, InMemoryRestaurant>();
             services.AddMvc();
         }
 

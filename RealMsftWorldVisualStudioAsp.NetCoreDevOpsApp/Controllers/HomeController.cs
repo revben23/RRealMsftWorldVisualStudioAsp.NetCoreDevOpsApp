@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models;
+using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Services;
+using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +11,13 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 {
     public class HomeController : Controller
     {
-        /* public string Index()
-         {   
+        private IRestaurantData _restaurantData;
+        private IGreeter _greeter;
 
-             return ("I am coming, HomeController");*/
+        /* public string Index()
+{   
+
+return ("I am coming, HomeController");*/
 
         /*public IActionResult Index()
         {
@@ -24,7 +29,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
         public IActionResult Index()
         {
 
-         
+
 
             return View();
 
@@ -33,7 +38,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
         public IActionResult Blog()
         {
 
-          
+
 
             return View("Blog");
 
@@ -42,7 +47,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
         public IActionResult Forum()
         {
 
-          
+
             return View("Forum");
 
         }
@@ -50,7 +55,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
         public IActionResult About()
         {
 
-         
+
             return View("About");
 
         }
@@ -58,7 +63,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
         public IActionResult Contact()
         {
 
-            
+
 
             return View("Contact");
 
@@ -71,24 +76,36 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             return View("Testing");
 
         }
-        
+
         public IActionResult Posts()
         {
-           
-            
+
+
             return View("Posts");
+        }
+
+        public HomeController (IRestaurantData restaurantData,
+                               IGreeter greeter)
+        {
+            _restaurantData = restaurantData;
+            _greeter = greeter;
         }
 
         public IActionResult Restaurant()
         {
 
-            var model = new Restaurant {
-                Id = 1, Name = "Revi's Nyamines Place"
-            };
+            var model = new HomeRestaurantViewModel();
+            model.Restaurant = _restaurantData.GetAll();
+            model.CurrentMessage = _greeter.GetMessageOfTheDay
+                ();
+
 
             return View(model);
 
         }
-    }
+
+
+    }   
+
 
 }

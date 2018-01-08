@@ -1,10 +1,22 @@
-﻿@model RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models.Restaurant
+﻿
+@model RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.ViewModels.HomeRestaurantViewModel
+
 @{
     ViewBag.Title = "Restaurant";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <body>
-   <h1>@Model.Name</h1>
+    <h1>@Model.CurrentMessage</h1>
+    <table>
+        @foreach (var restaurant in Model.Restaurant)
+        {
+        <tr>
+            <td>@restaurant.Id</td>
+            <td>@restaurant.Name</td>
+        </tr>
+        }
+    </table>
+     
 
 </body>

@@ -224,12 +224,13 @@ a:active{
     }
     .blogHeaders{
         float:none;
-        width:100%;
+        width:70%;
     }
     .blogHeaders {
         float: none;
         width: 100%;}
-        .blogPic {
+       
+    .blogPic {
         float: none;
         width: 100%;
         background-size: auto;
