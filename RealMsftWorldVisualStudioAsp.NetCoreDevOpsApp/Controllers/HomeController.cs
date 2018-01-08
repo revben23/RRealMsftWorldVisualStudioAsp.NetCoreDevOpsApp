@@ -59,7 +59,7 @@ return ("I am coming, HomeController");*/
             return View("About");
 
         }
-
+        [HttpGet]
         public IActionResult Contact()
         {
 
@@ -68,6 +68,20 @@ return ("I am coming, HomeController");*/
             return View("Contact");
 
         }
+        [HttpPost]
+        public IActionResult Contact(ContactInfo contactInfo)
+        {
+            var NewContactInfo = new ContactInfo();
+            NewContactInfo.FirstName = contactInfo.FirstName;
+            NewContactInfo.LastName = contactInfo.LastName;
+            NewContactInfo.Email = contactInfo.Email;
+            NewContactInfo.Message = contactInfo.Message;
+            NewContactInfo.Age = contactInfo.Age;
+            NewContactInfo.Birthday = contactInfo.Birthday;
+
+            return View("Contact");
+        }
+
         public IActionResult Testing()
         {
 
@@ -84,7 +98,7 @@ return ("I am coming, HomeController");*/
             return View("Posts");
         }
 
-        public HomeController (IRestaurantData restaurantData,
+        public HomeController(IRestaurantData restaurantData,
                                IGreeter greeter)
         {
             _restaurantData = restaurantData;
@@ -103,6 +117,33 @@ return ("I am coming, HomeController");*/
             return View(model);
 
         }
+        public IActionResult Details(int id)
+        {
+            var model = _restaurantData.Get(id);
+            if (model == null)
+            {
+                return RedirectToAction(nameof(Restaurant));
+            }
+            return View(model);
+
+        }
+        [HttpGet]
+        public IActionResult Create ()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create (RestaurantEditModel model)
+        {
+            var newRestaurant = new Restaurant();
+
+            newRestaurant = _restaurantData.Add(newRestaurant);
+            newRestaurant.Name = model.Name;
+            newRestaurant.Cuisine = model.Cuisine;
+
+            return RedirectToAction(nameof(Details), new { Id = newRestaurant.Id });
+        }
+  
 
 
     }   

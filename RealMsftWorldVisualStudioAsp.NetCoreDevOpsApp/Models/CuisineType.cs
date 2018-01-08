@@ -5,10 +5,14 @@ using System.Threading.Tasks;
 
 namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models
 {
-    public class Restaurant
+    public enum CuisineType
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public CuisineType Cuisine { get; set; }
+        None,
+        Jamaican,
+        Trinidadian,
+        American,
+        French,
+        Italian
+
     }
 }

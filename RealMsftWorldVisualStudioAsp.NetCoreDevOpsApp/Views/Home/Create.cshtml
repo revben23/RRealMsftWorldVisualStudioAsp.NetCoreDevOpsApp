@@ -1,0 +1,31 @@
+﻿@using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models
+@model Restaurant
+
+@{
+    ViewBag.Title = "Create New Restaurtants";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div id="theForm">
+    <div class="form">
+        <form method="post">
+
+            <div class="form-group">
+                <div>
+                    <label class="label">Restaurant Name</label>
+                    <input asp-for="Name" placeholder="Enter Restaurant Name" />
+                </div>
+                <br>
+
+                <label class="label">Cusine Type</label>
+                <select asp-for="Cuisine" asp-items="@Html.GetEnumSelectList<CuisineType>()"></select>
+            </div>
+            <br />
+            <div>
+               
+                <input type="submit" name="save" value="Save">
+            </div>
+        </form>
+    </div>
+</div>

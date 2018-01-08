@@ -99,10 +99,10 @@ a:active{
             width: 100%;
         }
 
-.form input[type="text"], .form textarea {
-            padding: 5px;
-            width: 97%;
-        }
+    .form input[type="text"],.form input[type="email"], .form textarea {
+        padding: 5px;
+        width: 97%;
+    }
 .form input[type="submit"]{
     background-color:green;
     color:white;
@@ -113,7 +113,7 @@ a:active{
         }
 
 .form textarea {
-            color: white;
+            color: black;
         }
 
  .form input[type="date"] {

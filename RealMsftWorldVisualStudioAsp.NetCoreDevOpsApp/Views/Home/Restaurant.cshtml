@@ -11,12 +11,17 @@
     <table>
         @foreach (var restaurant in Model.Restaurant)
         {
-        <tr>
-            <td>@restaurant.Id</td>
-            <td>@restaurant.Name</td>
-        </tr>
-        }
+            <tr>
+                <td><h3> @restaurant.Id</h3></td>
+                <td><h3> @restaurant.Name</h3></td>
+                <td>
+                    <a class="button" href="/Home/Details/@restaurant.Id">Details</a>
+                </td>
+            </tr>
+           }
     </table>
-     
+    <a asp-action="Create">Add Restaurants</a>
+ 
+
 
 </body>
