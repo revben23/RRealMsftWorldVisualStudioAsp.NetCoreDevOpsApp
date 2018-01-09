@@ -36,7 +36,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
             services.AddSingleton<IGreeter, Greeter>();
             services.AddScoped<IRestaurantData, SqlRestaurantData>();
 
-            services.AddDbContext<RestaurantDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("RealMsftWorldLocal")));
+     
            
             services.AddDbContext<RestaurantDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("RealMsftWorldAzure")));
           

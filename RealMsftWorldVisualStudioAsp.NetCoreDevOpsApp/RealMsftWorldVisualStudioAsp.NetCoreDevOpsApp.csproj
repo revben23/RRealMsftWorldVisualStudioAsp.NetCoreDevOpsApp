@@ -13,11 +13,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\SqlContactInformation.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="wwwroot\ts\file.ts" />
     <Content Remove="wwwroot\ts\main.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Services\SqlContactInformation.cs" />
     <None Include="wwwroot\index.html" />
   </ItemGroup>
 

@@ -26,11 +26,11 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data
 
 
 
-    public class ContactContext : DbContext
+    public class ContactDbContext : DbContext
     {
 
 
-        public ContactContext(DbContextOptions options)
+        public ContactDbContext(DbContextOptions options)
          : base(options)
         {
 

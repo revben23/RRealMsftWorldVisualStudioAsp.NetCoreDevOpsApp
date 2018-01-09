@@ -44,27 +44,5 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Services
     }
 
 
-    public class SqlContactInfo : IContactInfoData
-    {
-        private ContactContext _infocontext;
-
-        public SqlContactInfo(ContactContext infocontext)
-        {
-            _infocontext = infocontext;
-        }
-
-        public ContactInfo Add(ContactInfo contactInfo)
-        {
-            _infocontext.ContactInfos.Add(contactInfo);
-            _infocontext.SaveChanges();
-            return contactInfo;
-
-
-        }
-
-        public IEnumerable<ContactInfo> GetAll()
-        {
-            return _infocontext.ContactInfos.OrderBy(r => r.FirstName);
-        }
-    }
+  
 }
