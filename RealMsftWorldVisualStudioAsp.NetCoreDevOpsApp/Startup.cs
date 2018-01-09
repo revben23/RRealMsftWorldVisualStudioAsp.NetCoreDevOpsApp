@@ -6,22 +6,42 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data;
 using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Services;
+using System.Data.Odbc;
+using System.Data.SqlClient;
+
 
 namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
 {
     public class Startup
     {
+        private IConfiguration _configuration;
+
+        public Startup(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services) 
         {
          
             services.AddSingleton<IGreeter, Greeter>();
-            services.AddSingleton<IRestaurantData, InMemoryRestaurant>();
+            services.AddScoped<IRestaurantData, SqlRestaurantData>();
+
+            services.AddDbContext<RestaurantDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("RealMsftWorldLocal")));
+           
+            services.AddDbContext<RestaurantDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("RealMsftWorldAzure")));
+          
+
+
             services.AddMvc();
         }
 
