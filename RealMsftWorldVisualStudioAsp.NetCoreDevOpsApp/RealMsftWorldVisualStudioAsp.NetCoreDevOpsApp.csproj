@@ -6,14 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\**" />
     <Compile Remove="wwwroot\NewFolder\**" />
+    <Content Remove="Services\**" />
     <Content Remove="wwwroot\NewFolder\**" />
+    <EmbeddedResource Remove="Services\**" />
     <EmbeddedResource Remove="wwwroot\NewFolder\**" />
+    <None Remove="Services\**" />
     <None Remove="wwwroot\NewFolder\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Services\SqlContactInformation.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Services\SqlContactInformation.cs" />
     <None Include="wwwroot\index.html" />
   </ItemGroup>
 

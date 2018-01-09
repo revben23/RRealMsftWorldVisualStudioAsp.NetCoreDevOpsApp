@@ -10,8 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data;
-using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Services;
+
 using System.Data.Odbc;
 using System.Data.SqlClient;
 
@@ -32,13 +31,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services) 
         {
-         
-            services.AddSingleton<IGreeter, Greeter>();
-            services.AddScoped<IRestaurantData, SqlRestaurantData>();
-
-     
-           
-            services.AddDbContext<RestaurantDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("RealMsftWorldAzure")));
+      
           
 
 
@@ -49,13 +42,11 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
         public void Configure(
             IApplicationBuilder app, 
             IHostingEnvironment env,
-            IConfiguration  configuration,
-            IGreeter greeter, ILogger<Startup> logger)
+            IConfiguration  configuration)
+          
         {
-            /// if (env.IsDevelopment())
-             //{
-                 app.UseDeveloperExceptionPage();
-            //}
+           
+          
 
             
             //app.UseDefaultFiles();
@@ -63,15 +54,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
             //app.UseMvcWithDefaultRoute();
             app.UseMvc(ConfigureRoute);
 
-            app.Run(async (context) =>
-        
-            {
-               
-
-                var greeting = greeter.GetMessageOfTheDay();
-               // context.Response.ContentType = "text/plain";
-                await context.Response.WriteAsync($"{greeting} : {env.EnvironmentName} Not Found");
-            });
+            
 
 
 
