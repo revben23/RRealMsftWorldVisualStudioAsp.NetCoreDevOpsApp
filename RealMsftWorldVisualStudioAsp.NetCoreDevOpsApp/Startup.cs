@@ -53,6 +53,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
             app.UseMvc(ConfigureRoute);
+            app.UseBrowserLink();
 
             
 
