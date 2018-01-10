@@ -26,6 +26,7 @@ namespace RecipeDemoReal
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
         }
     }
