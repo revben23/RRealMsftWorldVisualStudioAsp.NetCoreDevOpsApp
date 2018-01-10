@@ -58,16 +58,16 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Contact(ContactInfo contactInfo)
+        public IActionResult Contact(ContactInfo ContactInfos)
         {
             if (ModelState.IsValid) { 
             var NewContactInfo = new ContactInfo();
-            NewContactInfo.FirstName = contactInfo.FirstName;
-            NewContactInfo.LastName = contactInfo.LastName;
-            NewContactInfo.Email = contactInfo.Email;
-            NewContactInfo.Message = contactInfo.Message;
-            NewContactInfo.Age = contactInfo.Age;
-            NewContactInfo.Birthday = contactInfo.Birthday;
+            NewContactInfo.FirstName = ContactInfos.FirstName;
+            NewContactInfo.LastName = ContactInfos.LastName;
+            NewContactInfo.Email = ContactInfos.Email;
+            NewContactInfo.Message = ContactInfos.Message;
+            NewContactInfo.Age = ContactInfos.Age;
+            NewContactInfo.Birthday = ContactInfos.Birthday;
 
             return View("ContactMessage");
             }

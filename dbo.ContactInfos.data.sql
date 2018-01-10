@@ -1,0 +1,2 @@
+﻿INSERT INTO [dbo].[ContactInfos] ([Message], [Age], [Birthday], [Email], [FirstName], [Gender], [LastName]) VALUES (N'I am Good', 28, N'1989-12-25 00:00:00', N'revibennett@outllok.com', N'Revi ', 1, N'Bennett')
+INSERT INTO [dbo].[ContactInfos] ([Message], [Age], [Birthday], [Email], [FirstName], [Gender], [LastName]) VALUES (N'I am Good now', 28, N'1989-12-25 00:00:00', N'revibennett@outllok.com', N'Revi ', 1, N'Bennett')

@@ -17,42 +17,42 @@
             <div class="form-group">
                 <div>
                     <label class="label">First Name</label>
-                    <input type="text" name="FirstName" placeholder="Enter First Name">
+                    <input type="text" name="FirstName" placeholder="Enter First Name" value= "FistName" >
                 </div>
                 <br>
                 <div>
                     <label class="label">Last Name</label>
-                    <input type="text" name="LastName" placeholder="Enter Last Name">
+                    <input type="text" name="LastName" value="LastName" placeholder="Enter Last Name">
                 </div>
                 <br>
                 <div>
                     <label class="label">Email Address</label>
-                    <input type="email" name="Email" placeholder="Enter Email Address">
+                    <input type="email" name="Email" value="Email" placeholder="Enter Email Address">
                 </div>
                 <br>
                 <div>
                     <label class="label">Your Message</label>
-                    <textarea class="textarea" rows="10" asp-for="Message" placeholder="Enter Your Message"></textarea>
+                    <textarea class="textarea" rows="10" asp-for="Message"  value= "Message" placeholder="Enter Your Message"></textarea>
                 </div>
                 <br>
                 <div>
                     <label class="label">Your Age</label>
-                    <input asp-for="Age" placeholder="Enter Your Age"><!--you can put in the value on the back-end-->
+                    <input asp-for="Age" value= "Age"placeholder="Enter Your Age"><!--you can put in the value on the back-end-->
                 </div>
                 <br>
                 <div>
                     <label class="label">Gender</label>
-                    <select asp-for="Gender" asp-items="@Html.GetEnumSelectList<GenderType>()">Gender</select>
+                    <select asp-for="Gender" asp-items="@Html.GetEnumSelectList<GenderType>()" value="Gender">Gender</select>
                 </div>
                 <br />
                 <div>
                     <label class="label">Birthday:</label>
-                    <input type="date" name="Birthday">
+                    <input type="date" name="Birthday" value="Birthday">
                 </div>
                 <br>
               <div id="submit">
                     <input type="submit" class="button"
-                           name="submit" value="Submit">
+                           name="submit" value="submit">
                 </div>
             </div>
             <br>
