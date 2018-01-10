@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SamuraiApp.Domain;
+using SamuraiAppCore.Domain;
 
 
-namespace SamuraiApp.Data
+namespace SamuraiAppCore.Data
 {
     class SamuraiContext : DbContext 
     {

@@ -13,29 +13,29 @@ using Microsoft.Extensions.Logging;
 
 using System.Data.Odbc;
 using System.Data.SqlClient;
-
+using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data;
 
 namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
 {
     public class Startup
     {
-        private IConfiguration _configuration;
-
-        public Startup(IConfiguration configuration)
+          public Startup(IConfiguration configuration)
         {
-            _configuration = configuration;
+            Configuration = configuration;
         }
 
+        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services) 
         {
-      
-          
 
 
+
+           services.AddDbContext<ContactInformationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ContactInformation")));
             services.AddMvc();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

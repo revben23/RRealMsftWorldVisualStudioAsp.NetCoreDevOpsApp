@@ -7,6 +7,8 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data;
+using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models;
 
 namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
 {
@@ -15,11 +17,17 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
         public static void Main(string[] args)
         {
             BuildWebHost(args).Run();
+           
         }
+
+     
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .Build();
-    }
+
+
+    } 
+
 }

@@ -69,6 +69,8 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             NewContactInfo.Age = ContactInfos.Age;
             NewContactInfo.Birthday = ContactInfos.Birthday;
 
+              
+
             return View("ContactMessage");
             }
             else

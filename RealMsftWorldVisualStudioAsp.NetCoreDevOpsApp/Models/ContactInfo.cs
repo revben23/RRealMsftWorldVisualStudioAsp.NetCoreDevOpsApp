@@ -29,8 +29,6 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models
             [Display(Name ="Gender")]
             [Required]
             public GenderType Gender { get; set; }
-            
-       
 
     }
     }
