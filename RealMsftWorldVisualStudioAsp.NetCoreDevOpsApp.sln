@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealMsftWorldVisualStudioAs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeDemoReal", "RecipeDemoReal\RecipeDemoReal.csproj", "{1BD3864A-CF58-4FCD-B162-F8676D26AA5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamuraiAppCore.Domain", "SamuraiAppCore.Domain\SamuraiAppCore.Domain.csproj", "{51D39AE2-C10C-45E0-ADD4-FAE213613CCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SamuraiAppCore.Domain", "SamuraiAppCore.Domain\SamuraiAppCore.Domain.csproj", "{51D39AE2-C10C-45E0-ADD4-FAE213613CCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamuariAppCore.Data", "SamuariAppCore.Data\SamuariAppCore.Data.csproj", "{E21CD07A-E3DD-4AA4-8070-8CFC87431182}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SamuariAppCore.Data", "SamuariAppCore.Data\SamuariAppCore.Data.csproj", "{E21CD07A-E3DD-4AA4-8070-8CFC87431182}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood", "..\..\Desktop\aspdotnet-core-fundamentals\09\demos\demos\before\OdeToFood\OdeToFood.csproj", "{EF0E0CFB-2F1E-479B-8015-CAAD996B9AA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{E21CD07A-E3DD-4AA4-8070-8CFC87431182}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E21CD07A-E3DD-4AA4-8070-8CFC87431182}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E21CD07A-E3DD-4AA4-8070-8CFC87431182}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF0E0CFB-2F1E-479B-8015-CAAD996B9AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF0E0CFB-2F1E-479B-8015-CAAD996B9AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF0E0CFB-2F1E-479B-8015-CAAD996B9AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF0E0CFB-2F1E-479B-8015-CAAD996B9AA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
