@@ -7,7 +7,6 @@
 }
 <div>
    
-    <div asp-validation-summary="All"></div>
   
 </div>
 <div id="theForm">
@@ -16,38 +15,45 @@
 
             <div class="form-group">
                 <div>
-                    <label class="label">First Name</label>
-                    <input type="text" name="FirstName" placeholder="Enter First Name" value= "FistName" >
+                    <label class="label" asp-for="FirstName">First Name</label>
+                    <input type="text" name="FirstName" asp-for="FirstName" placeholder="Enter First Name" value= "FistName" >
+                    <span asp-validation-for="FirstName"></span>
                 </div>
                 <br>
                 <div>
-                    <label class="label">Last Name</label>
-                    <input type="text" name="LastName" value="LastName" placeholder="Enter Last Name">
+                    <label class="label" asp-for="LastName">Last Name</label>
+                    <input type="text" name="LastName" asp-for="LastName" value="MiLastName" placeholder="Enter Last Name">
+                    <span asp-validation-for="LastName"></span>
                 </div>
                 <br>
                 <div>
-                    <label class="label">Email Address</label>
-                    <input type="email" name="Email" value="Email" placeholder="Enter Email Address">
+                    <label class="label" asp-for="Email">Email Address</label>
+                    <input type="email" name="Email" asp-for="Email" value="Email" placeholder="Enter Email Address">
+                    <span asp-validation-for="Email"></span>
                 </div>
                 <br>
                 <div>
-                    <label class="label">Your Message</label>
-                    <textarea class="textarea" rows="10" asp-for="Message"  value= "Message" placeholder="Enter Your Message"></textarea>
+                    <label class="label" asp-for="Message">Your Message</label>
+                    <textarea class="textarea" rows="10" asp-for="Message" value="Message" placeholder="Enter Your Message"></textarea>
+                    <span asp-validation-for="Message"></span>
                 </div>
                 <br>
                 <div>
-                    <label class="label">Your Age</label>
-                    <input asp-for="Age" value= "Age"placeholder="Enter Your Age"><!--you can put in the value on the back-end-->
+                    <label class="label" asp-for="Age">Your Age</label>
+                    <input asp-for="Age" value="Age" placeholder="Enter Your Age"><!--you can put in the value on the back-end-->
+                    <span asp-validation-for="Age"></span>
                 </div>
                 <br>
                 <div>
-                    <label class="label">Gender</label>
+                    <label class="label" asp-for="Gender">Gender</label>
                     <select asp-for="Gender" asp-items="@Html.GetEnumSelectList<GenderType>()" value="Gender">Gender</select>
+                    <span asp-validation-for="Gender"></span>
                 </div>
                 <br />
                 <div>
-                    <label class="label">Birthday:</label>
-                    <input type="date" name="Birthday" value="Birthday">
+                    <label class="label" asp-for="Birthday">Birthday:</label>
+                    <input type="date" name="Birthday" asp-for="Birthday">
+                    <span asp-validation-for="Birthday"></span>
                 </div>
                 <br>
               <div id="submit">
