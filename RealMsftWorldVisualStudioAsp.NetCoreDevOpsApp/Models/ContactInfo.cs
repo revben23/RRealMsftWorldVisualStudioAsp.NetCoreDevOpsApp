@@ -23,7 +23,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models
             [Required]
             public string Email { get; set; }
             [Required]
-            [Key]
+   
             public string Message { get; set; }
             [Required]
             public int Age { get; set; }

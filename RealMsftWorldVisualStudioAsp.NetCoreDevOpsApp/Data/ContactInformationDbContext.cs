@@ -26,7 +26,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data
 
          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
          {
-              optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = ContactInformationDataReal; Trusted_Connection = True; ");
+              optionsBuilder.UseSqlServer("Data Source=tcp:msftworldvisualstudiodevops.database.windows.net,1433;Initial Catalog=msftworldvisualstudiodevops;User ID=msftworldvisualstudiodevops;Password=Radicals21");
 
          }
 

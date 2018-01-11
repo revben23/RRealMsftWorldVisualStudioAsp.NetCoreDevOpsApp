@@ -84,7 +84,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 
                 NewContactInfo = _contactinformationData.Add(NewContactInfo);
 
-                return View("ContactMessage", new { id = NewContactInfo.Id });
+                return View("ContactMessage");
             }
             else
             {
