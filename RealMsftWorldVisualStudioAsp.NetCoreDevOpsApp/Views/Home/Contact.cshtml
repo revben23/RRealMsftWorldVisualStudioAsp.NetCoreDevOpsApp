@@ -12,24 +12,24 @@
 </div>
 <div id="theForm">
     <div class="form">
-        <form method="post">
+        <form method="post"  asp-validation-summary="All">
 
             <div class="form-group">
                 <div > 
                     <label class="label" >First Name</label>
-                    <input type="text" name="FirstName"  placeholder="Enter First Name"  >
+                    <input type="text" name="FirstName"  asp-for="FirstName" placeholder="Enter First Name"  >
                   
                 </div>
                 <br>
                 <div>
                     <label class="label" >Last Name</label>
-                    <input type="text" name="LastName"  placeholder="Enter Last Name">
+                    <input type="text" name="LastName" asp-for="LastName"   placeholder="Enter Last Name">
                     
                 </div>
                 <br>
                 <div>
                     <label class="label" >Email Address</label>
-                    <input type="email" name="Email"  placeholder="Enter Email Address">
+                    <input type="email" name="Email" asp-for="Email" placeholder="Enter Email Address">
                     
                 </div>
                 <br>
@@ -53,7 +53,7 @@
                 <br />
                 <div>
                     <label class="label">Birthday:</label>
-                    <input type="date" name="Birthday">
+                    <input type="date" name="Birthday" asp-for="Birthday">
 
                    
                 </div>
