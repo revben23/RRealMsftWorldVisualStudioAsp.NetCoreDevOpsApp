@@ -14,17 +14,20 @@ using Microsoft.Extensions.Logging;
 using System.Data.Odbc;
 using System.Data.SqlClient;
 using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data;
+using RealMsftWorldVisualStudioAsp.Services;
 
 namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
 {
     public class Startup
     {
-          public Startup(IConfiguration configuration)
+        private IConfiguration _configuration;
+
+        public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+      
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -33,7 +36,8 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
 
 
 
-           services.AddDbContext<ContactInformationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ContactInformation")));
+           services.AddDbContext<ContactInformationDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("ContactInformation")));
+            services.AddScoped<IContactInformationData, SqlContactInformationData>();
             services.AddMvc();
 
         }

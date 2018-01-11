@@ -3,6 +3,7 @@ using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data;
 using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models;
 
 using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.ViewModels;
+using RealMsftWorldVisualStudioAsp.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,15 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 {
     public class HomeController : Controller
     {
-     
+        private IContactInformationData _contactinformationData;
+       
+
+
+        /*public HomeController(IContactInformationData contactinformationData)
+         {
+             _contactinformationData = contactinformationData;
+
+         }*/
 
 
         public IActionResult Index()
@@ -57,6 +66,9 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             return View("Contact");
 
         }
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Contact(ContactInfo ContactInfos)
@@ -70,9 +82,9 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             NewContactInfo.Age = ContactInfos.Age;
             NewContactInfo.Birthday = ContactInfos.Birthday;
 
-              
+                NewContactInfo = _contactinformationData.Add(NewContactInfo);
 
-            return View("ContactMessage");
+                return View("ContactMessage", new { id = NewContactInfo.Id });
             }
             else
             {
@@ -96,9 +108,14 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             return View("Posts");
         }
 
+
+
+
+
+
+    
         
-        
-  
+
 
 
     }   

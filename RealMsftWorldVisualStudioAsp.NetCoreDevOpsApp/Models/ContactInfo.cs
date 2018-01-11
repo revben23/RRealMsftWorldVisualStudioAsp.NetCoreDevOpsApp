@@ -10,7 +10,11 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models
      
 
     public class ContactInfo
-        {   
+        {
+            [Required]
+            
+           public int Id { get; set; }
+
             [Required]
             
             public string FirstName { get; set; }
@@ -19,7 +23,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models
             [Required]
             public string Email { get; set; }
             [Required]
-            [KeyAttribute]
+            [Key]
             public string Message { get; set; }
             [Required]
             public int Age { get; set; }

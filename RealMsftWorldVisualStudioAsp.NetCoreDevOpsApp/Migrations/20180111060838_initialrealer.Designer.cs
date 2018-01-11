@@ -12,9 +12,10 @@ using System;
 namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Migrations
 {
     [DbContext(typeof(ContactInformationDbContext))]
-    partial class ContactInformationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180111060838_initialrealer")]
+    partial class initialrealer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

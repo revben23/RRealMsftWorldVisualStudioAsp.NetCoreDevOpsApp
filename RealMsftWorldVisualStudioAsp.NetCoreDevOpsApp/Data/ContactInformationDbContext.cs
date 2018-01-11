@@ -1,6 +1,7 @@
 ﻿using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models;
 using Microsoft.EntityFrameworkCore;
-
+using RealMsftWorldVisualStudioAsp.Services;
+using System;
 
 namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data
 {
@@ -15,13 +16,23 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data
 
        public DbSet<ContactInfo> ContactInfos {get; set;}
 
-
-
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public static implicit operator ContactInformationDbContext(SqlContactInformationData v)
         {
-             optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = ContactInformationDataTest; Trusted_Connection = True; ");
-
+            throw new NotImplementedException();
         }
+
+
+
+
+         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+         {
+              optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = ContactInformationDataReal; Trusted_Connection = True; ");
+
+         }
+
+        /* public static implicit operator ContactInformationDbContext(SqlContactInformationData v)
+         {
+             throw new NotImplementedException();
+         }*/
     }
 }
