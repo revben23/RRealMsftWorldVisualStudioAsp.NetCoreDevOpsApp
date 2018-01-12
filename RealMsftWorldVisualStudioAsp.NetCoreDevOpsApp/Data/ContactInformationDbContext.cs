@@ -14,12 +14,12 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data
 
         }
 
-       public DbSet<ContactInfo> ContactInfos {get; set;}
+       public DbSet<ContactInfo> ContactInfoss {get; set;}
 
-        public static implicit operator ContactInformationDbContext(SqlContactInformationData v)
+       /* public static implicit operator ContactInformationDbContext(SqlContactInformationData v)
         {
             throw new NotImplementedException();
-        }
+        }*/
 
 
 
@@ -29,6 +29,11 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data
               optionsBuilder.UseSqlServer("Data Source=tcp:msftworldvisualstudiodevops.database.windows.net,1433;Initial Catalog=msftworldvisualstudiodevops;User ID=msftworldvisualstudiodevops;Password=Radicals21");
 
          }
+
+        public static implicit operator ContactInformationDbContext(SqlContactInformationData v)
+        {
+            throw new NotImplementedException();
+        }
 
         /* public static implicit operator ContactInformationDbContext(SqlContactInformationData v)
          {

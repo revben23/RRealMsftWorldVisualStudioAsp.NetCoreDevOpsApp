@@ -9,7 +9,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models
     {
      
 
-    public class ContactInfo
+    public class ContactInfo : Contactinfos
         {
             [Required]
             
