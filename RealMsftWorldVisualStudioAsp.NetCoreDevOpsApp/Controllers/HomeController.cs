@@ -57,17 +57,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             return View("About");
 
         }
-        [HttpGet]
-        public IActionResult Contact()
-        {
-
-
-
-            return View("Contact");
-
-        }
-
-
+     
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -82,7 +72,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             NewContactInfo.Age = ContactInfos.Age;
             NewContactInfo.Birthday = ContactInfos.Birthday;
 
-                NewContactInfo = _contactinformationData.Add(NewContactInfo);
+                
 
                 return View("ContactMessage");
             }
@@ -91,6 +81,16 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
                 return View("Contact");
             }
         }
+        [HttpGet]
+        public IActionResult Contact()
+        {
+
+
+
+            return View("Contact");
+
+        }
+
 
         public IActionResult Testing()
         {

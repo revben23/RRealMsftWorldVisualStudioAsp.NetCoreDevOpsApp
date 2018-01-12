@@ -22,8 +22,8 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models
             public string LastName { get; set; }
             [Required]
             public string Email { get; set; }
-            [Required]
-   
+            
+            [MinLength (10)]
             public string Message { get; set; }
             [Required]
             public int Age { get; set; }
