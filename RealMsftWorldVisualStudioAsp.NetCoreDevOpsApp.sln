@@ -13,11 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CURD-FORM", "CURD-FORM\CURD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormInput", "FormInput\FormInput.csproj", "{86C4F803-C788-4C44-8D6B-C235760A3250}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Login", "Login", "{CE9DE3F6-3AA6-4CF4-80AD-8606C4EA3A8C}"
-	ProjectSection(SolutionItems) = preProject
-		login\package.json = login\package.json
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
