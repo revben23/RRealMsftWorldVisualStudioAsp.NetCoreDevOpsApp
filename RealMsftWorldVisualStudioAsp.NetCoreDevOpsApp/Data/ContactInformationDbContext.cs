@@ -10,34 +10,21 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data
 
         public ContactInformationDbContext(DbContextOptions<ContactInformationDbContext> options)
            : base(options)
-        { 
+        {
 
         }
 
-       public DbSet<ContactInfo> ContactInfoss {get; set;}
+   
+      public  DbSet<ContactInfo> ContactInfoss { get; set; }
 
-       /* public static implicit operator ContactInformationDbContext(SqlContactInformationData v)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            throw new NotImplementedException();
-        }*/
-
-
-
-
-         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-         {
-              optionsBuilder.UseSqlServer("Data Source=tcp:msftworldvisualstudiodevops.database.windows.net,1433;Initial Catalog=msftworldvisualstudiodevops;User ID=msftworldvisualstudiodevops;Password=Radicals21");
-
-         }
+            base.OnModelCreating(builder);
+        }
 
         public static implicit operator ContactInformationDbContext(SqlContactInformationData v)
         {
             throw new NotImplementedException();
         }
-
-        /* public static implicit operator ContactInformationDbContext(SqlContactInformationData v)
-         {
-             throw new NotImplementedException();
-         }*/
     }
 }

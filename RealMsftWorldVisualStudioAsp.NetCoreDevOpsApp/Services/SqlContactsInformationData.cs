@@ -36,6 +36,11 @@ namespace RealMsftWorldVisualStudioAsp.Services
             return _context.ContactInfoss.OrderBy(r => r.FirstName);
         }
 
+        public void SaveChanges()
+        {
+            throw new NotImplementedException();
+        }
+
         public ContactInfo Update(ContactInfo contactInfo)
         {
             _context.Attach(contactInfo).State =

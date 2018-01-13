@@ -1,0 +1,72 @@
+﻿@page
+@using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models
+@model ContactInfo
+@{
+    ViewData["Title"] = "Contact";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@Model.Message</h3>
+
+<div id="theForm">
+    <div class="form">
+
+        <form action="" method="post">
+
+            @Html.ValidationSummary()
+
+            <div class="form-group">
+                <div>
+                    <label class="label">First Name</label>
+                    <input type="text" name="FirstName" asp-for="FirstName" placeholder="Enter First Name">
+
+
+                </div>
+                <br>
+                <div>
+                    <label class="label">Last Name</label>
+                    <input type="text" name="LastName" asp-for="LastName" placeholder="Enter Last Name">
+
+                </div>
+                <br>
+                <div>
+                    <label class="label">Email Address</label>
+                    <input type="email" name="Email" asp-for="Email" placeholder="Enter Email Address">
+
+                </div>
+                <br>
+                <div>
+                    <label class="label">Your Message</label>
+                    <textarea class="textarea" rows="10" placeholder="Enter Your Message"></textarea>
+
+                </div>
+                <br>
+                <div>
+                    <label class="label">Your Age</label>
+                    <input asp-for="Age" value="Age" placeholder="Enter Your Age"><!--you can put in the value on the back-end-->
+
+                </div>
+                <br>
+                <div>
+                    <label class="label" a>Gender</label>
+                    <select asp-for="Gender" asp-items="@Html.GetEnumSelectList<GenderType>()">Gender</select>
+
+                </div>
+                <br />
+                <div>
+                    <label class="label">Birthday:</label>
+                    <input type="date" name="Birthday" asp-for="Birthday">
+
+
+                </div>
+                <br>
+                <div id="submit">
+                    <input type="submit" class="button"
+                           name="submit">
+                </div>
+            </div>
+            <br>
+
+        </form>
+    </div>
+</div>
+

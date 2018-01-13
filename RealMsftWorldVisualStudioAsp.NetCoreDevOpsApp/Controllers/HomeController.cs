@@ -72,7 +72,8 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             NewContactInfo.Age = ContactInfos.Age;
             NewContactInfo.Birthday = ContactInfos.Birthday;
 
-                
+              NewContactInfo = _contactinformationData.Add(NewContactInfo);
+                _contactinformationData.SaveChanges();
 
                 return View("ContactMessage");
             }
@@ -111,14 +112,16 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 
 
 
-
-
-    
-        
+      
 
 
 
-    }   
+
+
+
+
+
+    }
 
 
 }

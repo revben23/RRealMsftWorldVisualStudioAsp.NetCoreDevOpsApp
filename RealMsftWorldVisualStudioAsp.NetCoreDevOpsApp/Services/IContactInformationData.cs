@@ -12,5 +12,6 @@ namespace RealMsftWorldVisualStudioAsp.Services
         ContactInfo Get(int Id);
         ContactInfo Add(ContactInfo contactInfo);
         ContactInfo Update(ContactInfo contactInfo);
+        void SaveChanges();
     }
 }
