@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CURD-FORM", "CURD-FORM\CURD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormInput", "FormInput\FormInput.csproj", "{86C4F803-C788-4C44-8D6B-C235760A3250}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningCSharp", "LearningCSharp\LearningCSharp.csproj", "{DECF0448-F707-4804-A1A2-E4B70F898303}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{86C4F803-C788-4C44-8D6B-C235760A3250}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86C4F803-C788-4C44-8D6B-C235760A3250}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86C4F803-C788-4C44-8D6B-C235760A3250}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DECF0448-F707-4804-A1A2-E4B70F898303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DECF0448-F707-4804-A1A2-E4B70F898303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DECF0448-F707-4804-A1A2-E4B70F898303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DECF0448-F707-4804-A1A2-E4B70F898303}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

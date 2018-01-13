@@ -14,7 +14,9 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
     public class HomeController : Controller
     {
         private IContactInformationData _contactinformationData;
-       
+
+        public ContactInfo NewContactInfo { get; private set; }
+
 
 
         /*public HomeController(IContactInformationData contactinformationData)
@@ -87,6 +89,8 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
                 return View("Contact");
             }
         }
+        
+        
         [HttpGet]
         public IActionResult Contact()
         {
@@ -98,12 +102,16 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
         }
 
 
-        public IActionResult Testing()
+        public IActionResult ContactMessage()
         {
 
 
+            NewContactInfo = _contactinformationData.Add(NewContactInfo);
+            _contactinformationData.SaveChanges();
 
-            return View("Testing");
+            
+
+            return View("ContactMessage");
 
         }
 
