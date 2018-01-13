@@ -7,6 +7,9 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data
 {
     public class ContactInformationDbContext : DbContext
     {
+        public ContactInformationDbContext()
+        {
+        }
 
         public ContactInformationDbContext(DbContextOptions<ContactInformationDbContext> options)
            : base(options)
