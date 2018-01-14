@@ -36,7 +36,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
 
 
 
-           services.AddDbContext<ContactInformationDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("ContactInformation")));
+           services.AddDbContext<ContactInformationDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("RealMsftWorldAzure")));
             services.AddScoped<IContactInformationData, SqlContactInformationData>();
             services.AddMvc();
 
