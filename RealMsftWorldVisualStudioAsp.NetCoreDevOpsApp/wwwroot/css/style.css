@@ -81,13 +81,15 @@ a:active{
 
 
 .form {
-        border: 4px, rgb(48, 65, 23), solid;
-        border-style: outset;
-        width: 50%;
-        overflow: hidden;
-        background-image: url(../images/Belgium-Black-Polished-2cm-Lot-3071-Close-up.jpg);
-        color: aliceblue;
-    }
+    border: 4px, rgb(48, 65, 23), solid;
+    border-style: outset;
+    width: 50%;
+    overflow: hidden;
+    background-color: purple;
+    color: aliceblue;
+    border-color: deeppink;
+
+}
 
 .form .form-group {
             padding: 5px;
