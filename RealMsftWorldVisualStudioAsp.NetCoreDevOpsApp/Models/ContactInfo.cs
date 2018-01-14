@@ -23,16 +23,18 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models
             [Required]
             public string Email { get; set; }
             
-            [MinLength (10)]
+            
             public string Message { get; set; }
             [Required]
             public int Age { get; set; }
             [Display(Name="Birthday")]
             [Required]
-            public DateTime Birthday { get; set; }
+            public  DateTime  Birthday { get; set; }
             [Display(Name ="Gender")]
             [Required]
             public GenderType Gender { get; set; }
+
+
 
     }
     }

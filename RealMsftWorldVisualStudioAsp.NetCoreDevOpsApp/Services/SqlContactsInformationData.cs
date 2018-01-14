@@ -20,20 +20,20 @@ namespace RealMsftWorldVisualStudioAsp.Services
 
         public ContactInfo Add(ContactInfo contactInfo)
         {
-            _context.ContactInfoss.Add(contactInfo);
+            _context.ContactInfos.Add(contactInfo);
             _context.SaveChanges();
             return contactInfo;
         }
 
         public ContactInfo Get(int id)
         {
-            return _context.ContactInfoss.FirstOrDefault(r => r.Id == id);
+            return _context.ContactInfos.FirstOrDefault(r => r.Id == id);
 
         }
 
         public IEnumerable<ContactInfo> GetAll()
         {
-            return _context.ContactInfoss.OrderBy(r => r.FirstName);
+            return _context.ContactInfos.OrderBy(r => r.FirstName);
         }
 
         public void SaveChanges()

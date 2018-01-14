@@ -13,17 +13,24 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 {
     public class HomeController : Controller
     {
-        private IContactInformationData _contactinformationData;
+        //  private IContactInformationData _contactinformationData;
 
-        public ContactInfo NewContactInfo { get; private set; }
+        //private static ContactInformationDbContext _context;
 
-
+        // public ContactInfo NewContactInfo { get; private set; }
 
         /*public HomeController(IContactInformationData contactinformationData)
-         {
-             _contactinformationData = contactinformationData;
+           {
+               _contactinformationData = contactinformationData;
 
-         }*/
+           }*/
+
+        readonly ContactInformationDbContext context;
+
+        public HomeController(ContactInformationDbContext context)
+        {
+            this.context = context;
+        }
 
 
         public IActionResult Index()
@@ -63,24 +70,25 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Contact(ContactInfo ContactInfos)
+        public IActionResult Contact(ContactInfo ContactInfoss)
         {
             if (ModelState.IsValid) { 
 
             var NewContactInfo = new ContactInfo();
-            NewContactInfo.FirstName = ContactInfos.FirstName;
-            NewContactInfo.LastName = ContactInfos.LastName;
-            NewContactInfo.Email = ContactInfos.Email;
-            NewContactInfo.Message = ContactInfos.Message;
-            NewContactInfo.Age = ContactInfos.Age;
-            NewContactInfo.Birthday = ContactInfos.Birthday;
-                
-             
+            NewContactInfo.FirstName = ContactInfoss.FirstName;
+            NewContactInfo.LastName = ContactInfoss.LastName;
+            NewContactInfo.Email = ContactInfoss.Email;
+            NewContactInfo.Message = ContactInfoss.Message;
+            NewContactInfo.Age = ContactInfoss.Age;
+            NewContactInfo.Birthday = ContactInfoss.Birthday;
+
+               context.ContactInfos.Add(NewContactInfo);
+               context.SaveChanges();
 
                 return View("ContactMessage");
                 
-                    NewContactInfo = _contactinformationData.Add(NewContactInfo);
-                    _contactinformationData.SaveChanges();
+                  //  NewContactInfo = _contactinformationData.Add(NewContactInfo);
+                   // _contactinformationData.SaveChanges();
                 
             }
             else
@@ -106,8 +114,8 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
         {
 
 
-            NewContactInfo = _contactinformationData.Add(NewContactInfo);
-            _contactinformationData.SaveChanges();
+           // NewContactInfo = _contactinformationData.Add(NewContactInfo);
+           // _contactinformationData.SaveChanges();
 
             
 
