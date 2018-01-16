@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Text;
+using System.IO;
 
-namespace LearningCSharp
+namespace Grades
 {
-    public class GradeBook
+    public class GradeBook : GradeTracker
     {
         public GradeBook()
         {
@@ -12,47 +13,41 @@ namespace LearningCSharp
             grades = new List<float>();
         }
 
-        public GradeStatistics ComputeStatistics()
+        public override GradeStatistics ComputeStatistics()
         {
-           var stats= new GradeStatistics();
-           
+            Console.WriteLine("GradeBook::ComputeStatistics");
+
+            GradeStatistics stats = new GradeStatistics();
+            
             float sum = 0;
             foreach (float grade in grades)
             {
                 stats.HighestGrade = Math.Max(grade, stats.HighestGrade);
                 stats.LowestGrade = Math.Min(grade, stats.LowestGrade);
                 sum += grade;
-              //  sum = sum + grade;
             }
             stats.AverageGrade = sum / grades.Count;
-
             return stats;
         }
 
+        public override void WriteGrades(TextWriter destination)
+        {
+            for (int i = grades.Count; i > 0; i--)
+            {
+                destination.WriteLine(grades[i-1]);
+            }
+        }
 
-
-        public void AddGrade(float grade)
+        public override void AddGrade(float grade)
         {
             grades.Add(grade);
         }
-        public string Name
+
+        public override IEnumerator GetEnumerator()
         {
-            get
-            {
-                return _name;
-            }
-
-            set
-            {
-                if (!String.IsNullOrEmpty(value))
-                {
-                    _name = value;
-                }
-            }
+            return grades.GetEnumerator();
         }
-        public NameChangeDelegate NameChanged;
 
-        private string _name;
-        private List<float> grades;
+        protected List<float> grades;
     }
 }

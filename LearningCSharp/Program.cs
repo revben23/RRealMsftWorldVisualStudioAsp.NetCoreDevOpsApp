@@ -1,57 +1,80 @@
 ﻿using System;
-using System.Speech.Synthesis;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace LearningCSharp
-{ 
-    
+namespace Grades
+{
     class Program
-    {    
+    {
         static void Main(string[] args)
         {
+            IGradeTracker book = CreateGradeBook();
+            
+            //GetBookName(book);
+            AddGrades(book);
+            SaveGrades(book);
+            WriteResults(book);
+        }
 
-            GradeBook book = new GradeBook();
-            book.NameChanged = new NameChangeDelegate(OnNameChanged);
+        private static IGradeTracker CreateGradeBook()
+        {
+            return new ThrowAwayGradeBook();
+        }
 
-            Console.WriteLine("What Is Your Name?");
-            string name= Console.ReadLine();
-            Console.WriteLine("Hello, " + name);
-            Console.WriteLine("How Many Hours of Sleep Did You Get Last Night? " + name);
-            int hourOfSleep = int.Parse(Console.ReadLine());
-            if (hourOfSleep > 7)
+        private static void WriteResults(IGradeTracker book)
+        {
+            GradeStatistics stats = book.ComputeStatistics();
+
+            foreach (float grade in book)
             {
-                Console.WriteLine("You Are Well Rested");
+                Console.WriteLine(grade);
             }
-            else
-            {
-                Console.WriteLine("You Need More Sleep");
-            }
-            //  SpeechSynthesizer synth = new SpeechSynthesizer();
-            // synth.Speak("I am Revi Bennett, the greatest Radical ever in the world. I commnad the world.");
 
-            book.Name = "Revi's GradeBook";
+            WriteResult("Average", stats.AverageGrade);
+            WriteResult("Highest", stats.HighestGrade);
+            WriteResult("Lowest", stats.LowestGrade);
+            WriteResult(stats.Description, stats.LetterGrade);
+        }
+
+        private static void SaveGrades(IGradeTracker book)
+        {
+            using (StreamWriter outputFile = File.CreateText("grades.txt"))
+            {
+                book.WriteGrades(outputFile);
+            }
+        }
+
+        private static void AddGrades(IGradeTracker book)
+        {
             book.AddGrade(91);
             book.AddGrade(89.5f);
             book.AddGrade(75);
-      
-            GradeStatistics stats = book.ComputeStatistics();
-            WriteResult("Average", stats.AverageGrade);
-            WriteResult("Highest", (int)stats.HighestGrade);
-            WriteResult("Lowest", stats.LowestGrade);
-            Console.ReadKey();
+        }
 
-           
-        }
-        static void WriteResult(string description, int result)
+        private static void GetBookName(IGradeTracker book)
         {
-            Console.WriteLine(description + ": " +result );
+            try
+            {
+                Console.WriteLine("Enter a name");
+                book.Name = Console.ReadLine();
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
+
+        static void WriteResult(string description, string result)
+        {
+            Console.WriteLine($"{description}: {result}", description, result);
+        }                         
+
         static void WriteResult(string description, float result)
         {
-            Console.WriteLine(description + ": " + result);
-        }
-        static void OnNameChanged (string existingName, string newName)
-        {
-            Console.Write($"Grade Book changing name from {existingName} to {newName}");
+            Console.WriteLine($"{description}: {result:F2}", description, result);
         }
     }
 }
