@@ -243,6 +243,10 @@ a:active{
         padding:0px
         
     }
+    .sidebar text{
+        float:;
+        width:inherit;
+    }
 }
 .form1 label{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -347,7 +351,7 @@ body{
     box-sizing: border-box;
     padding-top: 1000px;
     padding-bottom: 1000px;
-    padding-left: 100px;
+   
 }
 .blogPosts {
     background-color: #1f1313;
