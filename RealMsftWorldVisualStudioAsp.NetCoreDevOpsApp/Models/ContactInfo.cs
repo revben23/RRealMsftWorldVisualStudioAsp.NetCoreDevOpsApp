@@ -32,7 +32,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models
             public  DateTime  Birthday { get; set; }
             [Display(Name ="Gender")]
             [Required]
-            public GenderType Gender { get; set; }
+            public GenderType Gender{ get; set; }
 
 
 
