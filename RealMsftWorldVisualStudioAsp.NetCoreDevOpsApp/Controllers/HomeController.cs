@@ -122,6 +122,19 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             return View("ContactMessage");
 
         }
+        public IActionResult Detail()
+        {
+
+
+            // NewContactInfo = _contactinformationData.Add(NewContactInfo);
+            // _contactinformationData.SaveChanges();
+
+
+
+            return View("Detail");
+
+        }
+
 
         public IActionResult Posts()
         {
