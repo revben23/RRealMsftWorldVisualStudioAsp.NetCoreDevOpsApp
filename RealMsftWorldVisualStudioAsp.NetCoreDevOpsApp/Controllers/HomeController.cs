@@ -144,9 +144,14 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
         }
 
 
-
-
-      
+        public IEnumerable<Models.ContactInfo> Get()
+        {
+            return new Models.ContactInfo[]
+             
+            {
+                
+            };
+        }
 
 
 

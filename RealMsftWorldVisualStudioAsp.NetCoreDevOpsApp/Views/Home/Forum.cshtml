@@ -5,13 +5,15 @@
  
 <form>
     <div class="form-forum">
-        <label>Time</label>
-        <input type="time" name="time" placeholder="The Time" />
+        <label>Time Zone</label>
+        
+        @TimeZoneInfo.Local
+      
 
     </div>
     <div class="form-forum">
         <label>Date</label>
-        <input type="date" name="time" placeholder="The Time" />
+         @DateTime.Now 
 
 
     </div>

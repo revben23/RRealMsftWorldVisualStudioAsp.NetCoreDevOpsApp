@@ -11,5 +11,29 @@ namespace MessageBoardBackend.Controllers
     [Route("api/Messages")]
     public class MessagesController : Controller
     {
+        static List<Models.Message> messages = new List<Models.Message>{
+                new Models.Message
+                {
+                    Owner= "John",
+                    Text= "Hello"
+
+                },
+                new Models.Message
+                {
+                    Owner = "Revi",
+                    Text = "My name is Julie"
+                }
+            };
+        public IEnumerable<Models.Message> Get()
+        {
+            return messages;
+            
+        }
+        [HttpPost]
+        public void Post([FromBody] Models.Message message)
+        {
+            messages.Add(message);
+        }
     }
+ 
 }

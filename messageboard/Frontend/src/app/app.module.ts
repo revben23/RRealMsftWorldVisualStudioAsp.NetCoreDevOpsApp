@@ -13,6 +13,8 @@ import { Component } from '@angular/core';
 import {MessagesComponent} from './messages.componet'
 
 import { AppComponent } from './app.component';
+import {WebServices} from './web.services';
+import{ HttpModule} from '@angular/http';
 
 
 @NgModule({
@@ -26,9 +28,10 @@ import { AppComponent } from './app.component';
     MatCardModule,
     MatInputModule,
     MatSnackBarModule,
-    MatToolbarModule 
+    MatToolbarModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [WebServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

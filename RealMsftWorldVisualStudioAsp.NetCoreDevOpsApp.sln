@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormInput", "FormInput\Form
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearningCSharp", "LearningCSharp\LearningCSharp.csproj", "{DECF0448-F707-4804-A1A2-E4B70F898303}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grades.test", "Grades.test\Grades.test.csproj", "{46E0A4C5-E03E-4866-9A79-14E698A5B857}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grades.test", "Grades.test\Grades.test.csproj", "{46E0A4C5-E03E-4866-9A79-14E698A5B857}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
