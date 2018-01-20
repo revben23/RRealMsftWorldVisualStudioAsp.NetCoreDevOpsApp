@@ -35,11 +35,18 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
         public void ConfigureServices(IServiceCollection services) 
         {
 
-
+            services.AddIdentity<UsersLogin, IdentityRole>(cfg =>
+            {
+                cfg.User.RequireUniqueEmail = true;
+                cfg.Password.RequireDigit = true;
+                cfg.Password.RequireUppercase = true;
+                cfg.Password.RequiredLength = 8;
+            })
+            .AddEntityFrameworkStores<ContactInformationDbContext>();
 
            services.AddDbContext<ContactInformationDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("RealMsftWorldAzure")));
 
-            services.AddIdentity<UsersLogin, IdentityRole>().AddEntityFrameworkStores<ContactInformationDbContext>();
+            //services.AddIdentity<UsersLogin, IdentityRole>().AddEntityFrameworkStores<ContactInformationDbContext>();
 
             services.AddScoped<IContactInformationData, SqlContactInformationData>();
             services.AddMvc();

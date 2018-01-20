@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data;
 using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models;
 
@@ -26,6 +28,8 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
            }*/
 
         readonly ContactInformationDbContext context;
+        
+        private SignInManager<UsersLogin> signInManager;
 
         public HomeController(ContactInformationDbContext context)
         {
@@ -153,22 +157,15 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             };
         }
 
-        public IActionResult Login()
+       /* public IActionResult Login()
         {
 
 
             return View("Login");
-        }
+        }*/
 
-        public IActionResult Register()
-        {
-
-
-            return View("Register");
-        }
-
-
-
+       
+        
 
 
     }

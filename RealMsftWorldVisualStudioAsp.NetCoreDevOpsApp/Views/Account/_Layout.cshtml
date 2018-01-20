@@ -1,0 +1,59 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MsftWorld Visual Studio Dev Ops: @ViewBag.Title</title>
+
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <header class="main-header"><h1>MsftWorld Visual Studio Dev Ops @ViewBag.Title</h1></header>
+    <div class="main-nav-bar">
+        <nav class="main-nav">
+
+
+
+            @Html.ActionLink("Home", "Index", "Home")
+            @Html.ActionLink("Forum", "Forum", "Home")
+            @Html.ActionLink("Blog", "Blog", "Home")
+            @Html.ActionLink("About", "About", "Home")
+            @Html.ActionLink("Contact", "Contact", "Home")
+         
+
+
+
+
+
+
+
+
+
+
+
+        </nav>
+
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <hr />
+
+    <footer class="main-footer">
+
+        <div class="big-block">
+            <div class="block"><p>Placeholder<br /> Placeholder<br />Placeholder<br />Placeholder<br />Placeholder</></div>
+            <div class="block1"><p>Placeholder<br /> Placeholder<br />Placeholder<br />Placeholder<br />Placeholder</></div>
+            <div class="block2"><p>Placeholder<br /> Placeholder<br />Placeholder<br />Placeholder<br />Placeholder</></div>
+        </div>
+        <div class="clr"></div>
+        <p class="block3">Copyright @DateTime.Now.Year &copy; MsftWorld Visual Studio Dev Ops</p>
+        <div class="clr"></div>
+
+        @RenderSection("footers", required: false)
+
+    </footer>
+    <script src="~/js/index.js"></script>
+</body>
+
+</html>
