@@ -55,7 +55,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             ModelState.AddModelError("", "Failed to login");
             return View("Login");
         }
-
+        [HttpGet]
         public IActionResult Register()
         {
             return View();
@@ -72,7 +72,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return View("ContactMessage");
                 }
             }
             return View(registerViewModel);
