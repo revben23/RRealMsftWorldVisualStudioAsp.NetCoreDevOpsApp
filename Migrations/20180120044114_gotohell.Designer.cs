@@ -12,9 +12,10 @@ using System;
 namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Migrations
 {
     [DbContext(typeof(ContactInformationDbContext))]
-    partial class ContactInformationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180120044114_gotohell")]
+    partial class gotohell
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,12 +140,12 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
-                    b.Property<string>("Email1")
+                    b.Property<string>("EMail");
+
+                    b.Property<string>("Email")
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
-
-                    b.Property<string>("EyeColour");
 
                     b.Property<string>("FirstName");
 
@@ -201,7 +202,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired();
 
-                    b.Property<string>("Gender");
+                    b.Property<int>("Gender");
 
                     b.Property<string>("LastName")
                         .IsRequired();

@@ -244,7 +244,7 @@ a:active{
         
     }
     .sidebar text{
-        float:;
+        float:none;
         width:inherit;
     }
 }
@@ -390,4 +390,13 @@ body{
 }
 .SucessDisplay{
     background-image: url(../images/success_blkboard.jpg);
+}
+.Register {
+    border-color: crimson;
+    border-radius: initial;
+    border-radius: 20px;
+    border: outset;
+    width:30%;
+    box-sizing:border-box;
+    float:left;
 }

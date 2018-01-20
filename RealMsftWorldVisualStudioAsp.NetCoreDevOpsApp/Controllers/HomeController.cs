@@ -153,8 +153,19 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             };
         }
 
+        public IActionResult Login()
+        {
 
 
+            return View("Login");
+        }
+
+        public IActionResult Register()
+        {
+
+
+            return View("Register");
+        }
 
 
 

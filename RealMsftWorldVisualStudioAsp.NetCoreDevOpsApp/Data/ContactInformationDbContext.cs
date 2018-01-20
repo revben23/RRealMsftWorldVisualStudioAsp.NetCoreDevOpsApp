@@ -2,10 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using RealMsftWorldVisualStudioAsp.Services;
 using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data;
 
 namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data
 {
-    public class ContactInformationDbContext : DbContext
+    public class ContactInformationDbContext : IdentityDbContext<UsersLogin>
     {
         public ContactInformationDbContext()
         {
@@ -29,5 +31,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data
         {
             throw new NotImplementedException();
         }
+
+        public DbSet<RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data.UsersLogin> UsersLogin { get; set; }
     }
 }

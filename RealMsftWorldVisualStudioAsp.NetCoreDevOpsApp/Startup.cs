@@ -10,11 +10,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System.Data.Odbc;
 using System.Data.SqlClient;
 using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data;
 using RealMsftWorldVisualStudioAsp.Services;
+using Microsoft.AspNetCore.Identity;
 
 namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
 {
@@ -37,6 +38,9 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
 
 
            services.AddDbContext<ContactInformationDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("RealMsftWorldAzure")));
+
+            services.AddIdentity<UsersLogin, IdentityRole>().AddEntityFrameworkStores<ContactInformationDbContext>();
+
             services.AddScoped<IContactInformationData, SqlContactInformationData>();
             services.AddMvc();
 
@@ -55,6 +59,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
             
             //app.UseDefaultFiles();
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
             app.UseMvc(ConfigureRoute);
             app.UseBrowserLink();

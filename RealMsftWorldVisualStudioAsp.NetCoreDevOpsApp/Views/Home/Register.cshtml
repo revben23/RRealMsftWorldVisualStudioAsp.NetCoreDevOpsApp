@@ -1,0 +1,45 @@
+﻿@model RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models.LoginViewModel
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+    <div asp-validation-summary="All" class=" text-danger"></div>
+    <div class="homeblock1">
+        <form class="form1">
+            <div class="username">
+                <label>Username</label>
+                <input type="text" name="UserName" asp-action="UserName" value="" />
+
+            </div>
+            <div class="username">
+                <label>Email</label>
+                <input type="email" name="Email1" asp-action="Email1" value="" />
+
+            </div>
+            <div class="password">
+                <label>Password</label>
+                <input type="password" name="PassWord" asp-action="PassWord" value="" />
+
+            </div>
+            <div id="checkbox">
+                <input type="checkbox" />
+                <label>Remember Me</label>
+            </div>
+            <div id="submit">
+
+                <input type="submit" , value="Login" />
+            </div>
+        </form>
+    </div>
+</div>
+<div class="clr"></div>
+
+
+@section footers{
+
+    <div class="footersection"><a href="https//msftworld.com"> Visit My Other Website</a></div>
+}

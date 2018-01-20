@@ -99,3 +99,35 @@ var theBiggestNumber = function (c,d){
 
 //theBiggestNumber();
 console.log(theBiggestNumber(4543/346453546, 545645/574554));
+
+const MYCONSTANT = 5;
+console.log(MYCONSTANT);
+
+function logScope (){
+    /* var or */let localVar = 2;
+
+    if(localVar){
+      /*let allow a variable to be used only locally in the nested function*/
+     let localVar = "I'm Differenet";
+        console.log("nested  localVar: ", localVar)
+    }
+    console.log("logScope localVar", localVar);
+}
+
+logScope();
+
+var course = new Object();
+
+var course ={
+    title: "JavaScript Essential Training",
+    instructor: "Revi Bennett",
+    level: 1,
+    published: true,
+    views: 0,
+    updateViews: function(){
+        return ++course.views;
+    }
+
+}
+
+console.log (course);

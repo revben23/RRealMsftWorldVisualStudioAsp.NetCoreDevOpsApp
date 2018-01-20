@@ -139,12 +139,12 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
-                    b.Property<string>("Email1")
+                    b.Property<string>("EMail");
+
+                    b.Property<string>("Email")
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
-
-                    b.Property<string>("EyeColour");
 
                     b.Property<string>("FirstName");
 
@@ -201,7 +201,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired();
 
-                    b.Property<string>("Gender");
+                    b.Property<int>("Gender");
 
                     b.Property<string>("LastName")
                         .IsRequired();
