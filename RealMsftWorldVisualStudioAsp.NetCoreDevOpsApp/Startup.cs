@@ -38,19 +38,16 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
         public void ConfigureServices(IServiceCollection services)
         {
 
-
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
-
             })
-            .AddOpenIdConnect(options => {
-
-
-                _configuration.Bind("AzureAd", options);
-            })
-            .AddCookie();
+                 .AddOpenIdConnect(options =>
+         {
+             _configuration.Bind("AzureAd", options);
+          })
+                .AddCookie();
 
             /* services.AddIdentity<UsersLogin, IdentityRole>(cfg =>
              {
