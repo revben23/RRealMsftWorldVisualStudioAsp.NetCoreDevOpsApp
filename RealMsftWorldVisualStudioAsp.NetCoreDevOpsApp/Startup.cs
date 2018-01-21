@@ -16,6 +16,9 @@ using System.Data.SqlClient;
 using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data;
 using RealMsftWorldVisualStudioAsp.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Rewrite;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 
 namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
 {
@@ -28,25 +31,39 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
             _configuration = configuration;
         }
 
-      
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services) 
+        public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddIdentity<UsersLogin, IdentityRole>(cfg =>
+
+            services.AddAuthentication(options =>
             {
-                cfg.User.RequireUniqueEmail = true;
-                cfg.Password.RequireDigit = true;
-                cfg.Password.RequireUppercase = true;
-                cfg.Password.RequiredLength = 8;
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+
             })
-            .AddEntityFrameworkStores<ContactInformationDbContext>();
+            .AddOpenIdConnect(options => {
 
-           services.AddDbContext<ContactInformationDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("RealMsftWorldAzure")));
 
-            //services.AddIdentity<UsersLogin, IdentityRole>().AddEntityFrameworkStores<ContactInformationDbContext>();
+                _configuration.Bind("AzureAd", options);
+            })
+            .AddCookie();
+
+            /* services.AddIdentity<UsersLogin, IdentityRole>(cfg =>
+             {
+                 cfg.User.RequireUniqueEmail = true;
+                 cfg.Password.RequireDigit = true;
+                 cfg.Password.RequireUppercase = true;
+                 cfg.Password.RequiredLength = 8;
+             })
+             .AddEntityFrameworkStores<ContactInformationDbContext>();*/
+
+            services.AddDbContext<ContactInformationDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("RealMsftWorldAzure")));
+
+            services.AddIdentity<UsersLogin, IdentityRole>().AddEntityFrameworkStores<ContactInformationDbContext>();
 
             services.AddScoped<IContactInformationData, SqlContactInformationData>();
             services.AddMvc();
@@ -55,23 +72,30 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(
-            IApplicationBuilder app, 
+            IApplicationBuilder app,
             IHostingEnvironment env,
-            IConfiguration  configuration)
-          
-        {
-           
-          
+            IConfiguration configuration)
 
-            
+        {
+
+
+
+
             //app.UseDefaultFiles();
+             //app.UseRewriter( new RewriteOptions           ()
+            //      .AddRedirectToHttpsPermanent());
+
             app.UseStaticFiles();
+
             app.UseAuthentication();
+
             app.UseMvcWithDefaultRoute();
+
             app.UseMvc(ConfigureRoute);
+
             app.UseBrowserLink();
 
-            
+
 
 
 

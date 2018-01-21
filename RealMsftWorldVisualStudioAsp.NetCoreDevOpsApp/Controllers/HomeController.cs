@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data;
@@ -12,7 +13,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
-{
+{   
+    [Authorize]
     public class HomeController : Controller
     {
         //  private IContactInformationData _contactinformationData;
@@ -36,7 +38,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             this.context = context;
         }
 
-
+        [AllowAnonymous]
         public IActionResult Index()
         {
 
@@ -54,7 +56,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             return View("Blog");
 
         }
-
+        
         public IActionResult Forum()
         {
 
