@@ -49,14 +49,14 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
           })
                 .AddCookie();
 
-            /* services.AddIdentity<UsersLogin, IdentityRole>(cfg =>
+            services.AddIdentity<UsersLogin, IdentityRole>(cfg =>
              {
                  cfg.User.RequireUniqueEmail = true;
                  cfg.Password.RequireDigit = true;
                  cfg.Password.RequireUppercase = true;
                  cfg.Password.RequiredLength = 8;
              })
-             .AddEntityFrameworkStores<ContactInformationDbContext>();*/
+             .AddEntityFrameworkStores<ContactInformationDbContext>();
 
             services.AddDbContext<ContactInformationDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("RealMsftWorldAzure")));
 
