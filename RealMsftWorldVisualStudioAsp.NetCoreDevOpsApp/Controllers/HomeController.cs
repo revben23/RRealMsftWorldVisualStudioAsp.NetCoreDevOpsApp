@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 {   
-    [Authorize]
+
     public class HomeController : Controller
     {
         //  private IContactInformationData _contactinformationData;
@@ -38,7 +38,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             this.context = context;
         }
 
-        [AllowAnonymous]
+
         public IActionResult Index()
         {
 
