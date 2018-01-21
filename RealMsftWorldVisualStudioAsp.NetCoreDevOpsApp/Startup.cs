@@ -60,7 +60,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
 
             services.AddDbContext<ContactInformationDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("RealMsftWorldAzure")));
 
-            services.AddIdentity<UsersLogin, IdentityRole>().AddEntityFrameworkStores<ContactInformationDbContext>();
+           // services.AddIdentity<UsersLogin, IdentityRole>().AddEntityFrameworkStores<ContactInformationDbContext>();
 
             services.AddScoped<IContactInformationData, SqlContactInformationData>();
             services.AddMvc();
