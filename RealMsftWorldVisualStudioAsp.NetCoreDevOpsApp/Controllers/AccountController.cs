@@ -26,70 +26,72 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
               return View("Register");
           }*/
 
-        public AccountController(SignInManager<UsersLogin> signInManager)
+        public AccountController(SignInManager<UsersLogin> signInManager, UserManager<UsersLogin> userManager)
         {
 
             _signInManager = signInManager;
-        }
-        public AccountController(UserManager<UsersLogin> userManager)
-        {
 
             _userManager = userManager;
+
         }
 
-        public IActionResult Login()
-        {
-            if (this.User.Identity.IsAuthenticated)
+        public IActionResult Login(string returnUrl)
             {
-                return RedirectToAction("Index", "Home");
-            }
-            return View();
+                return View(new LoginViewModel
+                {
+                    ReturnUrl = returnUrl
+                });
+
         }
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+                return View(loginViewModel);
+
+            var user = await _userManager.FindByNameAsync(loginViewModel.UserName);
+
+            if (user != null)
             {
-                var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
+                var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, false, false);
 
                 if (result.Succeeded)
                 {
-                    
-                        RedirectToAction("Forum", "Home");
-                    
+
+                    if (string.IsNullOrEmpty(loginViewModel.ReturnUrl))
+                        return RedirectToAction("Index", "Home");
+
+                    return Redirect(loginViewModel.ReturnUrl);
+
 
                 }
             }
-            ModelState.AddModelError("", "Failed to login");
-            return View("Login");
+            ModelState.AddModelError("", "Username/password not found");
+            return View(loginViewModel);
         }
-        [HttpGet]
+
         public IActionResult Register()
         {
             return View();
         }
 
-      /*  [HttpPost]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
         {
             if (ModelState.IsValid)
             {
-                var user = new UsersLogin() { UserName = registerViewModel.UserName, Email= registerViewModel.Email1, LastName = registerViewModel.LastName, FirstName = registerViewModel.FirstName, PasswordHash= registerViewModel.Password};
-               
+                var user = new UsersLogin() { UserName = registerViewModel.UserName, Email = registerViewModel.Email1, LastName = registerViewModel.LastName, FirstName = registerViewModel.FirstName, PasswordHash = registerViewModel.Password };
+
                 var result = await _userManager.CreateAsync(user, registerViewModel.Password);
 
                 if (result.Succeeded)
                 {
-                    return View("ContactMessage");
+                    return RedirectToAction("Index", "Home");
                 }
-                foreach (IdentityError error in result.Errors)
-                {
-                    ModelState.AddModelError("", error.Description);
-                }
-
             }
             return View(registerViewModel);
 
-        }*/
+        }
     }
 }
