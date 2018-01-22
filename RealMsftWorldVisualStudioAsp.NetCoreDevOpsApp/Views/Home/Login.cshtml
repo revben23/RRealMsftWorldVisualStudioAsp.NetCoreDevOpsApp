@@ -2,32 +2,41 @@
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
- 
+
+
+
+
+
 <div class="homeblock1">
-    <form class="form1">
+    <form class="form1" method="post">
+        <span asp-validation-summary="ModelOnly"></span>
+        @Html.ValidationSummary()
         <div class="username">
             <label>Username</label>
-            <input type="text" name="UserName" asp-action="UserName" value="" />
+            <input type="text" name="UserName" asp-for="UserName" value=""/>
+            <span>@Html.ValidationMessage(" This Reqiures Username")</span>
 
-        </div>
-     
+</div>
+
         <div class="password">
             <label>Password</label>
-            <input type="password" name="Password" asp-action="Password" value="" />
+            <input type="password" name="Password" asp-for="Password" value="" />
+            <span> @Html.ValidationMessage("Reqiures Password") </span>
 
         </div>
         <div id="checkbox">
-            <input type="checkbox" />
+            <input type="checkbox" asp-for="RememberMe" name="RememberMe" />
             <label>Remember Me</label>
         </div>
         <div id="submit">
 
-            <input type="submit" , value="Login" />
+            <input type="submit" , value="Login" class="btn btn-success" />
         </div>
     </form>
- @Html.ValidationSummary();
 </div>
+
 <div class="clr"></div>
 
 

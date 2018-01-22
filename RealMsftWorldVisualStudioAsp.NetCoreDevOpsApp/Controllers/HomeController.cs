@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 {   
-    [Authorize]
+    //[Authorize]
     public class HomeController : Controller
     {
         //  private IContactInformationData _contactinformationData;
@@ -31,14 +31,19 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 
         readonly ContactInformationDbContext context;
         
+        private UserManager<UsersLogin> userManager;
         private SignInManager<UsersLogin> signInManager;
 
-        public HomeController(ContactInformationDbContext context)
+        public HomeController(ContactInformationDbContext context, SignInManager<UsersLogin> signInManager, UserManager<UsersLogin> userManager)
         {
             this.context = context;
+
+            this.signInManager = signInManager;
+
+           this.userManager = userManager;
         }
 
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public IActionResult Index()
         {
 
@@ -159,15 +164,84 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             };
         }
 
-       /* public IActionResult Login()
+        /* public IActionResult Login()
+         {
+
+
+             return View("Login");
+         }*/
+
+  
+
+        //private SignInManager<UsersLogin> signInManager;
+        //private readonly UserManager<IdentityUser> _userManager;
+
+
+        /*  public IActionResult Register()
+          {
+
+
+              return View("Register");
+          }*/
+
+  
+     
+        [HttpGet]
+        public IActionResult Login()
         {
+            if (this.User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
+
+                if (result.Succeeded)
+                {
+
+                    RedirectToAction("Forum", "Home");
 
 
+                }
+            }
+            ModelState.AddModelError("", "Failed to login");
             return View("Login");
-        }*/
+        }
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
 
-       
-        
+         [HttpPost]
+          public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
+          {
+              if (ModelState.IsValid)
+              {
+                  var user = new UsersLogin() { UserName = registerViewModel.UserName, Email= registerViewModel.Email1, LastName = registerViewModel.LastName, FirstName = registerViewModel.FirstName, PasswordHash= registerViewModel.Password};
+
+                  var result = await userManager.CreateAsync(user, registerViewModel.Password);
+
+                  if (result.Succeeded)
+                  {
+                      return View("ContactMessage");
+                  }
+                  foreach (IdentityError error in result.Errors)
+                  {
+                      ModelState.AddModelError("", error.Description);
+                  }
+
+              }
+              return View(registerViewModel);
+
+          }
+          
 
 
     }

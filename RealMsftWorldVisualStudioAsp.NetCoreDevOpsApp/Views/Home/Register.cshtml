@@ -6,40 +6,53 @@
 
 
 
+<div class="homeblock1">
+    <form class="form1" method="post">
+        <span asp-validation-summary="ModelOnly"></span>
+        @Html.ValidationSummary()
+      
+        
+                <div class="firstname">
+                    <label>First Name</label>
+                    <input type="text" asp-for="FirstName" name="FirstName" value="" />
 
-    <div asp-validation-summary="All" class=" text-danger"></div>
-    <div class="homeblock1">
-        <form class="form1">
-            <div class="username">
-                <label>Username</label>
-                <input type="text" name="UserName" asp-action="UserName" value="" />
+                </div>
+                <div class="lastname">
+                    <label>Last Name</label>
+                    <input type="text" asp-for="LastName" name="LastName" value="" />
 
-            </div>
-            <div class="username">
-                <label>Email</label>
-                <input type="email" name="Email1" asp-action="Email1" value="" />
+                </div>
+                <div class="username">
+                    <label>Username</label>
+                    <input type="text" asp-for="UserName" name="UserName" value="" />
+                    <span>@Html.ValidationMessage("Reqiures Username")</span>
 
-            </div>
-            <div class="password">
-                <label>Password</label>
-                <input type="password" name="PassWord" asp-action="PassWord" value="" />
+                </div>
+                <div class="username">
+                    <label>Email</label>
+                    <input type="email" asp-for="Email1" name="Email1" value="" />
 
-            </div>
-            <div id="checkbox">
-                <input type="checkbox" />
-                <label>Remember Me</label>
-            </div>
-            <div id="submit">
+                </div>
+                <div class="password">
+                    <label>Password</label>
+                    <input type="password" asp-for="Password" name="Password" value="" />
 
-                <input type="submit" , value="Login" />
-            </div>
-        </form>
-    </div>
-</div>
-<div class="clr"></div>
+                </div>
+                <div id="checkbox">
+                    <input type="checkbox" asp-for="RememberMe" name="RememberMe" />
+                    <label>Remember Me</label>
+                </div>
+                <div id="submit">
+
+                    <input type="submit" , value="Sign Up" />
+                </div>
+            </form>
+            @Html.ValidationSummary()
+        </div>
+        <div class="clr"></div>
 
 
-@section footers{
+        @section footers{
 
-    <div class="footersection"><a href="https//msftworld.com"> Visit My Other Website</a></div>
-}
+            <div class="footersection"><a href="https//msftworld.com"> Visit My Other Website</a></div>
+        }

@@ -69,7 +69,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             return View();
         }
 
-        [HttpPost]
+      /*  [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
         {
             if (ModelState.IsValid)
@@ -90,6 +90,6 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
             }
             return View(registerViewModel);
 
-        }
+        }*/
     }
 }
