@@ -186,61 +186,67 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 
   
      
-        [HttpGet]
-        public IActionResult Login()
+        
+        public IActionResult Login( string returnUrl)
         {
-            if (this.User.Identity.IsAuthenticated)
+            return View(new LoginViewModel
             {
-                return RedirectToAction("Index", "Home");
-            }
-            return View();
+                ReturnUrl= returnUrl
+            });
+         
         }
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+                return View(loginViewModel);
+
+            var user = await userManager.FindByNameAsync(loginViewModel.UserName);
+
+            if (user != null)
             {
-                var result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
+                var result = await signInManager.PasswordSignInAsync(user, loginViewModel.Password, false, false);
 
                 if (result.Succeeded)
                 {
 
-                    RedirectToAction("Forum", "Home");
+                    if (string.IsNullOrEmpty(loginViewModel.ReturnUrl))
+                        return RedirectToAction("Index", "Home");
+
+                    return Redirect(loginViewModel.ReturnUrl);
 
 
                 }
             }
-            ModelState.AddModelError("", "Failed to login");
-            return View("Login");
+            ModelState.AddModelError("", "Username/password not found");
+            return View(loginViewModel);
         }
-        [HttpGet]
+        
         public IActionResult Register()
         {
             return View();
         }
 
-         [HttpPost]
-          public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
-          {
-              if (ModelState.IsValid)
-              {
-                  var user = new UsersLogin() { UserName = registerViewModel.UserName, Email= registerViewModel.Email1, LastName = registerViewModel.LastName, FirstName = registerViewModel.FirstName, PasswordHash= registerViewModel.Password};
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new UsersLogin() { UserName = registerViewModel.UserName, Email = registerViewModel.Email1, LastName = registerViewModel.LastName, FirstName = registerViewModel.FirstName, PasswordHash = registerViewModel.Password };
 
-                  var result = await userManager.CreateAsync(user, registerViewModel.Password);
+                var result = await userManager.CreateAsync(user, registerViewModel.Password);
 
-                  if (result.Succeeded)
-                  {
-                      return View("ContactMessage");
-                  }
-                  foreach (IdentityError error in result.Errors)
-                  {
-                      ModelState.AddModelError("", error.Description);
-                  }
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return View(registerViewModel);
 
-              }
-              return View(registerViewModel);
+        }
+              
 
-          }
+          
           
 
 

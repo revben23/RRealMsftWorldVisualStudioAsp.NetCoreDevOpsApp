@@ -33,5 +33,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models
         public string EmailConfirmed { get; set; }
 
         public bool RememberMe { get; set; }
+
+        public string ReturnUrl { get; set; }
     }
 }
