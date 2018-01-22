@@ -12,8 +12,11 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 {
     public class AccountController : Controller
     {
-        private SignInManager<UsersLogin> signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private UserManager<UsersLogin> _userManager;
+        private SignInManager<UsersLogin> _signInManager;
+
+        //private SignInManager<UsersLogin> signInManager;
+        //private readonly UserManager<IdentityUser> _userManager;
 
 
         /*  public IActionResult Register()
@@ -23,10 +26,15 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
               return View("Register");
           }*/
 
-        public AccountController(SignInManager<UsersLogin> _signInManager)
+        public AccountController(SignInManager<UsersLogin> signInManager)
         {
 
             _signInManager = signInManager;
+        }
+        public AccountController(UserManager<UsersLogin> userManager)
+        {
+
+            _userManager = userManager;
         }
 
         public IActionResult Login()
@@ -42,7 +50,7 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
+                var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
 
                 if (result.Succeeded)
                 {
@@ -74,6 +82,11 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
                 {
                     return View("ContactMessage");
                 }
+                foreach (IdentityError error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
             }
             return View(registerViewModel);
 

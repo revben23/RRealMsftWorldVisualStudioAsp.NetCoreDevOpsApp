@@ -11,5 +11,10 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EyeColour { get; set; }
+
+        public static implicit operator UsersLogin(IdentityResult v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
