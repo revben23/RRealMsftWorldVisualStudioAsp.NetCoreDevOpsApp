@@ -1,6 +1,6 @@
 ﻿@model RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models.LoginViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
@@ -10,7 +10,7 @@
 
 
 <div class="homeblock1">
-    <form class="form1" method="post">
+    <form class="form1" method="post" asp-action="Login">
         <span asp-validation-summary="ModelOnly"></span>
         @Html.ValidationSummary()
         <div class="username">

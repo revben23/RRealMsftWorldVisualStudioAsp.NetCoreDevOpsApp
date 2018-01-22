@@ -1,54 +1,63 @@
-﻿@model RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Models.LoginViewModel
+﻿@model RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.ViewModels.RegisterViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Registration";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 
-<div class="homeblock1">
-    <form class="form1" method="post">
-        <span asp-validation-summary="ModelOnly"></span>
-        @Html.ValidationSummary()
-      
         
-                <div class="firstname">
-                    <label>First Name</label>
-                    <input type="text" asp-for="FirstName" name="FirstName" value="" />
+<div class="homeblock1">
+        @Html.ValidationSummary()
 
-                </div>
-                <div class="lastname">
-                    <label>Last Name</label>
-                    <input type="text" asp-for="LastName" name="LastName" value="" />
 
-                </div>
-                <div class="username">
-                    <label>Username</label>
-                    <input type="text" asp-for="UserName" name="UserName" value="" />
-                    <span>@Html.ValidationMessage("Reqiures Username")</span>
+    <form class="form1" method="post" asp-action="Register">
+        <span asp-validation-summary="ModelOnly"></span>
 
-                </div>
-                <div class="username">
-                    <label>Email</label>
-                    <input type="email" asp-for="Email1" name="Email1" value="" />
 
-                </div>
-                <div class="password">
-                    <label>Password</label>
-                    <input type="password" asp-for="Password" name="Password" value="" />
 
-                </div>
-                <div id="checkbox">
-                    <input type="checkbox" asp-for="RememberMe" name="RememberMe" />
-                    <label>Remember Me</label>
-                </div>
-                <div id="submit">
-
-                    <input type="submit" , value="Sign Up" />
-                </div>
-            </form>
-            @Html.ValidationSummary()
+        <div class="firstname">
+            <label>First Name</label>
+            <input type="text" asp-for="FirstName"  />
         </div>
+        <div class="lastname">
+            <label>Last Name</label>
+            <input type="text" asp-for="LastName"  />
+        </div>
+        <div class="username">
+            <label>Username</label>
+            <input type="text" asp-for="UserName"  />
+            <span>@Html.ValidationMessage("Reqiures Username")</span>
+        </div>
+        <div class="username">
+            <label>Email</label>
+            <input type="email" asp-for="Email1"  />
+        
+        </div>
+        <div class="password">
+            <label>Password</label>
+            <input type="password" asp-for="Password"  />
+        </div>
+        <div class="password">
+            <label>Repeat Password</label>
+            <input type="password" asp-for="RepeatPassword"  />
+        </div>
+        <div id="checkbox">
+            <input type="checkbox" asp-for="RememberMe"  />
+            <label>Remember Me</label>
+        </div>
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+        <div id="submit">
+            <input type="submit" , value="Sign Up" />
+        </div>
+}
+    </form>
+    
+    
+</div>
+
+   
         <div class="clr"></div>
 
 

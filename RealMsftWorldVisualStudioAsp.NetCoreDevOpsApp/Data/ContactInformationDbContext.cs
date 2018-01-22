@@ -20,7 +20,9 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Data
         }
 
    
-      public  DbSet<ContactInfo> ContactInfos { get; set; }
+        public  DbSet<ContactInfo> ContactInfos { get; set; }
+
+        public DbSet<UsersLogin> user { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

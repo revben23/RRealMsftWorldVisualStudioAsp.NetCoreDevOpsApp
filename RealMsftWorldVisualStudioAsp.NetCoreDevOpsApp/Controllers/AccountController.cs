@@ -12,27 +12,18 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
 {
     public class AccountController : Controller
     {
+        readonly ContactInformationDbContext context;
+
         private UserManager<UsersLogin> _userManager;
         private SignInManager<UsersLogin> _signInManager;
 
-        //private SignInManager<UsersLogin> signInManager;
-        //private readonly UserManager<IdentityUser> _userManager;
-
-
-        /*  public IActionResult Register()
-          {
-
-
-              return View("Register");
-          }*/
-
-        public AccountController(SignInManager<UsersLogin> signInManager, UserManager<UsersLogin> userManager)
+        public AccountController(ContactInformationDbContext context, SignInManager<UsersLogin> signInManager, UserManager<UsersLogin> userManager)
         {
+            this.context = context;
 
             _signInManager = signInManager;
 
             _userManager = userManager;
-
         }
 
         public IActionResult Login(string returnUrl)
@@ -81,7 +72,11 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new UsersLogin() { UserName = registerViewModel.UserName, Email = registerViewModel.Email1, LastName = registerViewModel.LastName, FirstName = registerViewModel.FirstName, PasswordHash = registerViewModel.Password };
+                var user = new UsersLogin() { UserName = registerViewModel.UserName, Email = registerViewModel.Email1, LastName = registerViewModel.LastName, FirstName = registerViewModel.FirstName, PasswordHash = registerViewModel.Password, RepeatPassword= registerViewModel.RepeatPassword };
+
+                context.user.Add(user);
+                context.SaveChanges();
+
 
                 var result = await _userManager.CreateAsync(user, registerViewModel.Password);
 

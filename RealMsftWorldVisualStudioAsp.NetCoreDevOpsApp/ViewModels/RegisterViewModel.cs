@@ -15,6 +15,11 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.ViewModels
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        [Required]
+        [Compare("Password")]
+        public string RepeatPassword { get; set; }
+
         [Required]
         public string FirstName { get; set; }
 
@@ -25,6 +30,8 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp.ViewModels
 
         [Required]
         public string Email1 { get; set; }
+
+        
 
 
         public bool RememberMe { get; set; }

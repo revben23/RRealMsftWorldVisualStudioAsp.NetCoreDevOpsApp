@@ -79,12 +79,17 @@ namespace RealMsftWorldVisualStudioAsp.NetCoreDevOpsApp
 
 
             //app.UseDefaultFiles();
-             //app.UseRewriter( new RewriteOptions           ()
+            //app.UseRewriter( new RewriteOptions           ()
             //      .AddRedirectToHttpsPermanent());
+
+
+            app.UseAuthentication();
 
             app.UseStaticFiles();
 
-            app.UseAuthentication();
+            
+
+            
 
             app.UseMvcWithDefaultRoute();
 
